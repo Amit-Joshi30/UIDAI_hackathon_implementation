@@ -1,0 +1,31 @@
+# Virtual environment
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data files (CRITICAL)
+*.csv
+*.zip
+
+# Data folders (hackathon datasets)
+*_bundle/
+*_bundle
+PAN_India_Census/
+UIDAI_wPopulation/
+Village_Amenities_Data/
+Village_pincode_matching_files/
+Town_Amenities_Data/
+UIDAI Data Hackathon 2026/
+Notebooks/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Notebooks (personal preprocessing)
+*.ipynb
