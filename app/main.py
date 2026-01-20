@@ -166,28 +166,32 @@ def render_sidebar():
 
         st.markdown("---")
 
-        # ✅ PINCODE INPUT (FINAL)
-        search = st.text_input(
+        # ✅ PINCODE INPUT (FIXED)
+        # Use key parameter instead of value to bind to session state
+        st.text_input(
             "Pincode",
-            value=st.session_state.search_query,
+            key="search_query",
             placeholder="Enter 6-digit pincode",
             label_visibility="collapsed",
         )
 
-        if search.isdigit() and len(search) == 6:
-            if search != st.session_state.selected_pincode:
-                record = lookup_pincode(search)
-                if record:
-                    st.session_state.search_query = search
-                    st.session_state.selected_pincode = search
-                    st.session_state.selected_record = record
-                    st.session_state.current_view = "analysis"
+        # Check if search query has changed and is valid
+        if st.session_state.search_query:
+            search = st.session_state.search_query.strip()
+            
+            if search.isdigit() and len(search) == 6:
+                if search != st.session_state.selected_pincode:
+                    record = lookup_pincode(search)
+                    if record:
+                        st.session_state.selected_pincode = search
+                        st.session_state.selected_record = record
+                        st.session_state.current_view = "analysis"
 
-                    st.query_params.clear()
-                    st.query_params["view"] = "analysis"
-                    st.query_params["pincode"] = search
+                        st.query_params.clear()
+                        st.query_params["view"] = "analysis"
+                        st.query_params["pincode"] = search
 
-                    st.rerun()
+                        st.rerun()
 
         if st.session_state.selected_record:
             if st.button("Clear", use_container_width=True):
@@ -196,6 +200,7 @@ def render_sidebar():
                 st.session_state.selected_record = None
                 st.query_params.clear()
                 st.query_params["view"] = st.session_state.current_view
+                st.rerun()
 
         st.markdown(
             """
