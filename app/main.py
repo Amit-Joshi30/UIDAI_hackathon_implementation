@@ -138,7 +138,7 @@ def render_sidebar():
 
         st.markdown("---")
 
-        # ✅ DIRECT APPROACH - No query params, just session state
+        # ✅ PINCODE INPUT WITH DEBUG
         pincode_input = st.text_input(
             "Pincode",
             value="",
@@ -147,15 +147,30 @@ def render_sidebar():
             label_visibility="collapsed",
         )
 
-        # Process immediately when valid pincode entered
+        # 🔍 DEBUG OUTPUT
+        st.write(f"DEBUG: Input value = `{pincode_input}`")
+        st.write(f"DEBUG: Is digit? {pincode_input.isdigit() if pincode_input else 'N/A'}")
+        st.write(f"DEBUG: Length = {len(pincode_input) if pincode_input else 0}")
+        st.write(f"DEBUG: Selected pincode = `{st.session_state.selected_pincode}`")
+
+        # Process when valid
         if pincode_input and pincode_input.isdigit() and len(pincode_input) == 6:
+            st.write(f"🔍 DEBUG: Looking up pincode {pincode_input}...")
+            
             if pincode_input != st.session_state.selected_pincode:
                 record = lookup_pincode(pincode_input)
+                st.write(f"🔍 DEBUG: Record found = {record is not None}")
+                
                 if record:
+                    st.write(f"✅ DEBUG: Setting session state and switching to analysis view")
                     st.session_state.selected_pincode = pincode_input
                     st.session_state.selected_record = record
                     st.session_state.current_view = "analysis"
                     st.rerun()
+                else:
+                    st.error(f"❌ No record found for pincode {pincode_input}")
+            else:
+                st.info("Already selected this pincode")
 
         # Show selected record
         if st.session_state.selected_record:
