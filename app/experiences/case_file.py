@@ -5,9 +5,10 @@ Pincode-level metrics display only.
 No prescriptive language. No recommendations.
 All values from notebook artifacts.
 """
-# Updated: 2026-01-20 19:49 IST - CHUNKED HTML VERSION
+# Updated: 2026-01-20 19:53 IST - USING COMPONENTS.HTML
 
 import streamlit as st
+import streamlit.components.v1 as components
 from typing import Dict, Optional
 
 
@@ -16,11 +17,6 @@ def render_case_file(record: Optional[Dict] = None, policy_record: Optional[Dict
     Render metrics for a single pincode.
     Notebook-bound: shows only what exists in artifacts.
     """
-    
-    # DEBUG: Check if function is called
-    st.write("🔍 DEBUG: render_case_file called - version 2026-01-20-19:49")
-    st.write(f"🔍 DEBUG: record exists = {record is not None}")
-    st.write(f"🔍 DEBUG: policy_record exists = {policy_record is not None}")
 
     if not record:
         render_case_file_placeholder()
@@ -36,9 +32,6 @@ def render_case_file(record: Optional[Dict] = None, policy_record: Optional[Dict
     priority_score = record.get("priority_score", 0)
     is_desert = record.get("is_service_desert", False)
 
-    # DEBUG: Check parsed values
-    st.write(f"🔍 DEBUG: pincode={pincode}, population={population}, urban_flag={urban_flag}")
-
     # Policy details
     composite_priority = None
     mismatch_type = None
@@ -52,7 +45,7 @@ def render_case_file(record: Optional[Dict] = None, policy_record: Optional[Dict
     # Badges
     desert_badge = ""
     if is_desert:
-        desert_badge = """
+        desert_badge = f"""
         <span style="background: rgba(248, 81, 73, 0.2); color: #F85149;
         padding: 4px 10px; border-radius: 4px; font-size: 0.7rem;
         font-weight: 600; letter-spacing: 0.05em; margin-left: 12px;">
@@ -110,92 +103,86 @@ def render_case_file(record: Optional[Dict] = None, policy_record: Optional[Dict
         </div>
         """
 
-    # DEBUG: About to render HTML
-    st.write("🔍 DEBUG: About to call st.markdown with unsafe_allow_html=True")
-
-    # Build HTML in smaller pieces
-    header_html = f"""
+    # Build complete HTML
+    full_html = f"""
     <div class="case-file" style="background: rgba(22, 27, 34, 0.9);
          border: 1px solid rgba(255, 255, 255, 0.1);
          border-radius: 12px; padding: 0; overflow: hidden;">
-    
-    <div style="background: linear-gradient(135deg, rgba(26, 115, 232, 0.15),
-                rgba(255, 153, 51, 0.1));
-                padding: 1.5rem;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-        <div style="display: flex; align-items: center; flex-wrap: wrap;">
-            <span style="color: #1A73E8; font-size: 1.75rem; font-weight: 700;
+
+        <div style="background: linear-gradient(135deg, rgba(26, 115, 232, 0.15),
+                    rgba(255, 153, 51, 0.1));
+                    padding: 1.5rem;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+            <div style="display: flex; align-items: center; flex-wrap: wrap;">
+                <span style="color: #1A73E8; font-size: 1.75rem; font-weight: 700;
+                             font-family: 'SF Mono', Consolas, monospace;">
+                    {pincode}
+                </span>
+                {desert_badge}
+                {rank_badge}
+            </div>
+            <p style="color: #E6EDF3; font-size: 1rem; margin: 0.5rem 0 0 0;">
+                {district}, {state}
+            </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr);
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+            <div style="padding: 1rem; border-right: 1px solid rgba(255, 255, 255, 0.05);">
+                <p style="color: #8B949E; font-size: 0.7rem; margin: 0;
+                          text-transform: uppercase; letter-spacing: 0.05em;">
+                    Population
+                </p>
+                <p style="color: #E6EDF3; font-size: 1.25rem; font-weight: 600;
+                          margin: 0.25rem 0 0 0;">
+                    {population:,.0f}
+                </p>
+            </div>
+            <div style="padding: 1rem; border-right: 1px solid rgba(255, 255, 255, 0.05);">
+                <p style="color: #8B949E; font-size: 0.7rem; margin: 0;
+                          text-transform: uppercase; letter-spacing: 0.05em;">
+                    Activity / 100k
+                </p>
+                <p style="color: #1A73E8; font-size: 1.25rem; font-weight: 600;
+                          margin: 0.25rem 0 0 0;">
+                    {activity_per_100k:.1f}
+                </p>
+            </div>
+            <div style="padding: 1rem;">
+                <p style="color: #8B949E; font-size: 0.7rem; margin: 0;
+                          text-transform: uppercase; letter-spacing: 0.05em;">
+                    Classification
+                </p>
+                <p style="color: #E6EDF3; font-size: 1.25rem; font-weight: 600;
+                          margin: 0.25rem 0 0 0;">
+                    {urban_flag}
+                </p>
+            </div>
+        </div>
+
+        {mismatch_block}
+
+        <div style="padding: 1rem 1.5rem; background: rgba(0, 0, 0, 0.2);
+                    display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <span style="color: #6E7681; font-size: 0.75rem;">Priority Score</span>
+                <p style="color: #6E7681; font-size: 0.65rem; margin: 0;">
+                    pincode_aggregates.csv
+                </p>
+            </div>
+            <span style="color: #FF9933; font-size: 1.1rem; font-weight: 700;
                          font-family: 'SF Mono', Consolas, monospace;">
-                {pincode}
+                {priority_score:.3f}
             </span>
-            {desert_badge}
-            {rank_badge}
         </div>
-        <p style="color: #E6EDF3; font-size: 1rem; margin: 0.5rem 0 0 0;">
-            {district}, {state}
-        </p>
+
+        {composite_block}
+
     </div>
     """
     
-    metrics_html = f"""
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr);
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-        <div style="padding: 1rem; border-right: 1px solid rgba(255, 255, 255, 0.05);">
-            <p style="color: #8B949E; font-size: 0.7rem; margin: 0;
-                      text-transform: uppercase; letter-spacing: 0.05em;">
-                Population
-            </p>
-            <p style="color: #E6EDF3; font-size: 1.25rem; font-weight: 600;
-                      margin: 0.25rem 0 0 0;">
-                {population:,.0f}
-            </p>
-        </div>
-        <div style="padding: 1rem; border-right: 1px solid rgba(255, 255, 255, 0.05);">
-            <p style="color: #8B949E; font-size: 0.7rem; margin: 0;
-                      text-transform: uppercase; letter-spacing: 0.05em;">
-                Activity / 100k
-            </p>
-            <p style="color: #1A73E8; font-size: 1.25rem; font-weight: 600;
-                      margin: 0.25rem 0 0 0;">
-                {activity_per_100k:.1f}
-            </p>
-        </div>
-        <div style="padding: 1rem;">
-            <p style="color: #8B949E; font-size: 0.7rem; margin: 0;
-                      text-transform: uppercase; letter-spacing: 0.05em;">
-                Classification
-            </p>
-            <p style="color: #E6EDF3; font-size: 1.25rem; font-weight: 600;
-                      margin: 0.25rem 0 0 0;">
-                {urban_flag}
-            </p>
-        </div>
-    </div>
-    """
-    
-    priority_html = f"""
-    <div style="padding: 1rem 1.5rem; background: rgba(0, 0, 0, 0.2);
-                display: flex; justify-content: space-between; align-items: center;">
-        <div>
-            <span style="color: #6E7681; font-size: 0.75rem;">Priority Score</span>
-            <p style="color: #6E7681; font-size: 0.65rem; margin: 0;">
-                pincode_aggregates.csv
-            </p>
-        </div>
-        <span style="color: #FF9933; font-size: 1.1rem; font-weight: 700;
-                     font-family: 'SF Mono', Consolas, monospace;">
-            {priority_score:.3f}
-        </span>
-    </div>
-    </div>
-    """
-    
-    # Combine and render
-    full_html = header_html + metrics_html + mismatch_block + priority_html + composite_block
-    
-    st.markdown(full_html, unsafe_allow_html=True)
-    
-    st.write("🔍 DEBUG: Finished st.markdown call")
+    # Use components.html instead of st.markdown
+    components.html(full_html, height=400)
 
 
 def render_case_file_placeholder():
