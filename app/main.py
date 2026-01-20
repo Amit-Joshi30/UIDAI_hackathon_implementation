@@ -138,7 +138,7 @@ def render_sidebar():
 
         st.markdown("---")
 
-        # ✅ PINCODE INPUT WITH DEBUG
+        # Pincode input
         pincode_input = st.text_input(
             "Pincode",
             value="",
@@ -147,30 +147,38 @@ def render_sidebar():
             label_visibility="collapsed",
         )
 
-        # 🔍 DEBUG OUTPUT
-        st.write(f"DEBUG: Input value = `{pincode_input}`")
-        st.write(f"DEBUG: Is digit? {pincode_input.isdigit() if pincode_input else 'N/A'}")
-        st.write(f"DEBUG: Length = {len(pincode_input) if pincode_input else 0}")
-        st.write(f"DEBUG: Selected pincode = `{st.session_state.selected_pincode}`")
-
-        # Process when valid
-        if pincode_input and pincode_input.isdigit() and len(pincode_input) == 6:
-            st.write(f"🔍 DEBUG: Looking up pincode {pincode_input}...")
+        # 🔍 DEBUG FILE PATHS
+        if st.checkbox("Debug file paths"):
+            from config import PINCODE_AGGREGATES
+            import pandas as pd
             
-            if pincode_input != st.session_state.selected_pincode:
-                record = lookup_pincode(pincode_input)
-                st.write(f"🔍 DEBUG: Record found = {record is not None}")
+            st.write(f"**File path:** `{PINCODE_AGGREGATES}`")
+            st.write(f"**File exists?** {PINCODE_AGGREGATES.exists()}")
+            
+            if PINCODE_AGGREGATES.exists():
+                file_size = PINCODE_AGGREGATES.stat().st_size / (1024*1024)
+                st.write(f"**File size:** {file_size:.2f} MB")
                 
-                if record:
-                    st.write(f"✅ DEBUG: Setting session state and switching to analysis view")
-                    st.session_state.selected_pincode = pincode_input
-                    st.session_state.selected_record = record
-                    st.session_state.current_view = "analysis"
-                    st.rerun()
-                else:
-                    st.error(f"❌ No record found for pincode {pincode_input}")
+                # Load and check
+                raw_df = pd.read_csv(PINCODE_AGGREGATES, nrows=10)
+                st.write(f"**Columns:** {list(raw_df.columns)}")
+                st.write(f"**First 10 pincodes:**")
+                st.dataframe(raw_df[['pincode']] if 'pincode' in raw_df.columns else raw_df)
             else:
-                st.info("Already selected this pincode")
+                st.error("❌ CSV file NOT FOUND!")
+                st.write("Check your artifacts folder structure")
+
+        # Process pincode
+        if pincode_input and pincode_input.isdigit() and len(pincode_input) == 6:
+            record = lookup_pincode(pincode_input)
+            
+            if record:
+                st.session_state.selected_pincode = pincode_input
+                st.session_state.selected_record = record
+                st.session_state.current_view = "analysis"
+                st.rerun()
+            else:
+                st.error(f"❌ Pincode {pincode_input} not found in dataset")
 
         # Show selected record
         if st.session_state.selected_record:
