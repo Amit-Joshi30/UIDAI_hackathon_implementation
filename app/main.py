@@ -4,6 +4,12 @@ UIDAI Insight Command Center - Main Application
 Experience-first architecture for judge memory.
 90-second flow: Framing -> Proof -> Case File -> Decision -> Trust
 """
+import sys
+from pathlib import Path
+
+APP_DIR = Path(__file__).resolve().parent
+if str(APP_DIR) not in sys.path:
+    sys.path.insert(0, str(APP_DIR))
 
 import streamlit as st
 from pathlib import Path
@@ -22,12 +28,33 @@ st.set_page_config(
         "About": "UIDAI Insight Command Center - Hackathon 2026",
     },
 )
+# --- HARD LOCK SIDEBAR (DISABLE COLLAPSE FOREVER) ---
+st.markdown(
+    """
+    <style>
+    /* Hide the sidebar collapse button (<<) */
+    button[kind="header"] {
+        display: none !important;
+    }
+
+    /* Force sidebar to always be visible */
+    section[data-testid="stSidebar"] {
+        min-width: 280px !important;
+        max-width: 280px !important;
+        transform: none !important;
+        visibility: visible !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 # --- FORCE SIDEBAR TO ALWAYS RENDER (PERMANENT FIX) ---
 if "sidebar_force_render" not in st.session_state:
     st.session_state.sidebar_force_render = True
 
 with st.sidebar:
-    st.markdown("")
+    st.markdown("")  # forces Streamlit to mount sidebar every run
 
 # =============================================================================
 # IMPORTS
@@ -50,13 +77,13 @@ from data_handler import (
     validate_data_sources,
 )
 
-# ✅ FIXED: all experience imports explicitly included
 from experiences.framing import render_framing, render_framing_minimal
 from experiences.proof import render_proof
 from experiences.case_file import render_case_file, render_case_file_header
 from experiences.decision import render_decision
 from experiences.trust import render_trust, render_trust_footer
 from experiences.insights import render_insights
+
 
 # =============================================================================
 # LOAD CSS
@@ -121,7 +148,7 @@ if not st.session_state.data_loaded:
     st.rerun()
 
 # =============================================================================
-# URL PARAMS (SAFE, ONE-TIME HYDRATION)
+# URL PARAMS (SAFE ONE-TIME HYDRATION)
 # =============================================================================
 def handle_url_params():
     if st.session_state.url_initialized:
@@ -214,7 +241,8 @@ def render_sidebar():
                     st.session_state.selected_pincode = search
                     st.session_state.selected_record = record
                     st.experimental_set_query_params(
-                        view=st.session_state.current_view, pincode=search
+                        view=st.session_state.current_view,
+                        pincode=search,
                     )
 
         if st.session_state.selected_record:
@@ -275,13 +303,9 @@ def render_main():
         render_case_file_header()
 
         policy_record = None
-        if (
-            st.session_state.selected_pincode
-            and not policy_df.empty
-        ):
+        if st.session_state.selected_pincode and not policy_df.empty:
             match = policy_df[
-                policy_df["pincode"]
-                == st.session_state.selected_pincode
+                policy_df["pincode"] == st.session_state.selected_pincode
             ]
             if not match.empty:
                 policy_record = match.iloc[0].to_dict()
