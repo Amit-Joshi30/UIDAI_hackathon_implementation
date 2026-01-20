@@ -1,0 +1,22 @@
+{
+  "note": "Correlation does NOT imply service adequacy or equity. Descriptive only.",
+  "n_pincodes": 19879,
+  "pearson_correlation": {
+    "r": -0.04135716828179522,
+    "p_value": 5.437553640210993e-09
+  },
+  "spearman_correlation": {
+    "rho": -0.7652639945325116,
+    "p_value": 0.0
+  },
+  "huber_robust_regression": {
+    "intercept": 108.1277113407348,
+    "slope": -4.907949710571181e-05,
+    "scale": 43.01346427472627
+  },
+  "heteroskedasticity_test": {
+    "breusch_pagan_statistic": 5.692591236034845,
+    "breusch_pagan_p_value": 0.017036679995560418,
+    "interpretation": "Significant heteroskedasticity detected"
+  }
+}

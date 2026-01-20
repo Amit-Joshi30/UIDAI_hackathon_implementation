@@ -1,0 +1,1944 @@
+2026-01-18 21:08:29,183 - __main__ - INFO - ============================================================
+2026-01-18 21:08:29,184 - __main__ - INFO - POPULATION IMPUTATION AUDIT
+2026-01-18 21:08:29,184 - __main__ - INFO - ============================================================
+2026-01-18 21:08:29,184 - __main__ - INFO - Loading data from C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\UIDAI_with_population.csv
+2026-01-18 21:08:31,878 - __main__ - INFO - Loaded 238,548 rows, 43 columns
+2026-01-18 21:08:31,878 - __main__ - INFO - Starting population imputation audit
+2026-01-18 21:08:32,257 - __main__ - INFO - Imputation source distribution:
+imputation_source
+original           181728
+district_median     54552
+state_median         2064
+global_median         204
+Name: count, dtype: int64
+2026-01-18 21:08:37,645 - __main__ - INFO - Saved imputation report to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\antigravity\imputed_population_report.csv
+2026-01-18 21:08:37,650 - __main__ - INFO - 
+============================================================
+2026-01-18 21:08:37,650 - __main__ - INFO - SUMMARY
+2026-01-18 21:08:37,650 - __main__ - INFO - ============================================================
+2026-01-18 21:08:37,651 - __main__ - INFO - Total unique pincodes: 19,879
+2026-01-18 21:08:37,651 - __main__ - INFO - Pincodes with imputed population: 4,735 (23.82%)
+2026-01-18 21:08:37,652 - __main__ - INFO - Pincodes with original population: 15,144
+2026-01-18 21:08:37,652 - __main__ - INFO - 
+Imputation breakdown:
+2026-01-18 21:08:37,654 - __main__ - INFO -   original: 15,144 (76.18%)
+2026-01-18 21:08:37,656 - __main__ - INFO -   district_median: 4,546 (22.87%)
+2026-01-18 21:08:37,656 - __main__ - INFO -   state_median: 172 (0.87%)
+2026-01-18 21:08:37,656 - __main__ - INFO -   global_median: 17 (0.09%)
+2026-01-18 21:08:37,656 - __main__ - INFO - 
+Population imputation audit complete (descriptive only)
+2026-01-18 21:08:39,415 - __main__ - INFO - ============================================================
+2026-01-18 21:08:39,416 - __main__ - INFO - SERVICE DESERT SENSITIVITY ANALYSIS
+2026-01-18 21:08:39,417 - __main__ - INFO - ============================================================
+2026-01-18 21:08:39,417 - __main__ - INFO - Primary threshold: 50% (operational definition)
+2026-01-18 21:08:39,417 - __main__ - INFO - Robustness checks: 40%, 60%
+2026-01-18 21:08:39,418 - __main__ - INFO - Loading data from C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\UIDAI_with_population.csv
+2026-01-18 21:08:41,891 - __main__ - INFO - Loaded 238,548 rows
+2026-01-18 21:08:42,064 - __main__ - INFO - Aggregating to pincode level
+2026-01-18 21:08:42,185 - __main__ - INFO - Computing district baselines
+2026-01-18 21:08:42,199 - __main__ - INFO - 
+Testing threshold: 40%
+2026-01-18 21:08:42,228 - __main__ - INFO -   Desert count: 474
+2026-01-18 21:08:42,228 - __main__ - INFO -   Mean gap: -70.73%
+2026-01-18 21:08:42,229 - __main__ - INFO - 
+Testing threshold: 50%
+2026-01-18 21:08:42,253 - __main__ - INFO -   Desert count: 1,055
+2026-01-18 21:08:42,253 - __main__ - INFO -   Mean gap: -61.91%
+2026-01-18 21:08:42,253 - __main__ - INFO - 
+Testing threshold: 60%
+2026-01-18 21:08:42,276 - __main__ - INFO -   Desert count: 1,813
+2026-01-18 21:08:42,276 - __main__ - INFO -   Mean gap: -54.72%
+2026-01-18 21:08:42,282 - __main__ - INFO - 
+Saved sensitivity analysis to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\antigravity\service_desert_sensitivity.csv
+2026-01-18 21:08:42,282 - __main__ - INFO - 
+============================================================
+2026-01-18 21:08:42,282 - __main__ - INFO - SUMMARY
+2026-01-18 21:08:42,282 - __main__ - INFO - ============================================================
+2026-01-18 21:08:42,283 - __main__ - INFO - Primary definition (50%): 1,055 service deserts
+2026-01-18 21:08:42,283 - __main__ - INFO - Robustness check (40%): 474 service deserts
+2026-01-18 21:08:42,283 - __main__ - INFO - Robustness check (60%): 1,813 service deserts
+2026-01-18 21:08:42,283 - __main__ - INFO - Variation from 50% baseline:
+2026-01-18 21:08:42,284 - __main__ - INFO -   40% threshold: -55.1% change
+2026-01-18 21:08:42,284 - __main__ - INFO -   60% threshold: +71.8% change
+2026-01-18 21:08:42,284 - __main__ - INFO - 
+Service desert sensitivity analysis complete
+2026-01-18 21:08:48,348 - __main__ - INFO - ============================================================
+2026-01-18 21:08:48,350 - __main__ - INFO - RURAL VS URBAN STATISTICAL VALIDATION
+2026-01-18 21:08:48,350 - __main__ - INFO - ============================================================
+2026-01-18 21:08:48,350 - __main__ - INFO - Loading data from C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\UIDAI_with_population.csv
+2026-01-18 21:08:51,038 - __main__ - INFO - Loaded 238,548 rows
+2026-01-18 21:08:51,211 - __main__ - INFO - Aggregating to pincode level
+2026-01-18 21:08:51,356 - __main__ - INFO - 
+Rural pincodes: 14,063
+2026-01-18 21:08:51,356 - __main__ - INFO - Urban pincodes: 1,081
+2026-01-18 21:08:51,356 - __main__ - INFO - 
+Computing effect size (Cohen's d)
+2026-01-18 21:08:51,358 - __main__ - INFO - Running Mann-Whitney U test
+2026-01-18 21:08:51,369 - __main__ - INFO - Computing bootstrap 95% CI for median difference
+2026-01-18 21:08:51,369 - __main__ - INFO - Running bootstrap with 10,000 resamples
+2026-01-18 21:09:00,918 - __main__ - INFO - 
+Saved statistics to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\antigravity\rural_urban_comparison_stats.json
+2026-01-18 21:09:00,927 - __main__ - INFO - Saved medians CSV to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\antigravity\rural_urban_medians.csv
+2026-01-18 21:09:00,928 - __main__ - INFO - Generating boxplot visualization
+2026-01-18 21:09:02,066 - __main__ - INFO - Saved boxplot to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\antigravity\rural_urban_boxplot.png
+2026-01-18 21:09:02,066 - __main__ - INFO - 
+============================================================
+2026-01-18 21:09:02,066 - __main__ - INFO - SUMMARY
+2026-01-18 21:09:02,066 - __main__ - INFO - ============================================================
+2026-01-18 21:09:02,067 - __main__ - INFO - Rural median activity: 68.76 per 100k
+2026-01-18 21:09:02,067 - __main__ - INFO - Urban median activity: 63.94 per 100k
+2026-01-18 21:09:02,067 - __main__ - INFO - Median difference: 4.81 per 100k
+2026-01-18 21:09:02,067 - __main__ - INFO - Cohen's d effect size: 0.047
+2026-01-18 21:09:02,067 - __main__ - INFO - Mann-Whitney U p-value: 1.1744e-04
+2026-01-18 21:09:02,068 - __main__ - INFO - Bootstrap 95% CI: [-0.07, 11.03]
+2026-01-18 21:09:02,068 - __main__ - INFO - 
+Rural vs urban statistical validation complete
+2026-01-18 21:11:25,330 - __main__ - INFO - ============================================================
+2026-01-18 21:11:25,330 - __main__ - INFO - POPULATION IMPUTATION AUDIT
+2026-01-18 21:11:25,330 - __main__ - INFO - ============================================================
+2026-01-18 21:11:25,330 - __main__ - INFO - Loading data from C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\UIDAI_with_population.csv
+2026-01-18 21:11:26,835 - __main__ - INFO - Loaded 238,548 rows, 43 columns
+2026-01-18 21:11:26,835 - __main__ - INFO - Starting population imputation audit
+2026-01-18 21:11:27,056 - __main__ - INFO - Imputation source distribution:
+imputation_source
+original           181728
+district_median     54552
+state_median         2064
+global_median         204
+Name: count, dtype: int64
+2026-01-18 21:11:29,631 - __main__ - INFO - Saved imputation report to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\antigravity\imputed_population_report.csv
+2026-01-18 21:11:29,634 - __main__ - INFO - 
+============================================================
+2026-01-18 21:11:29,634 - __main__ - INFO - SUMMARY
+2026-01-18 21:11:29,634 - __main__ - INFO - ============================================================
+2026-01-18 21:11:29,634 - __main__ - INFO - Total unique pincodes: 19,879
+2026-01-18 21:11:29,634 - __main__ - INFO - Pincodes with imputed population: 4,735 (23.82%)
+2026-01-18 21:11:29,635 - __main__ - INFO - Pincodes with original population: 15,144
+2026-01-18 21:11:29,635 - __main__ - INFO - 
+Imputation breakdown:
+2026-01-18 21:11:29,637 - __main__ - INFO -   original: 15,144 (76.18%)
+2026-01-18 21:11:29,637 - __main__ - INFO -   district_median: 4,546 (22.87%)
+2026-01-18 21:11:29,637 - __main__ - INFO -   state_median: 172 (0.87%)
+2026-01-18 21:11:29,637 - __main__ - INFO -   global_median: 17 (0.09%)
+2026-01-18 21:11:29,637 - __main__ - INFO - 
+Population imputation audit complete (descriptive only)
+2026-01-18 21:11:30,722 - __main__ - INFO - ============================================================
+2026-01-18 21:11:30,722 - __main__ - INFO - SERVICE DESERT SENSITIVITY ANALYSIS
+2026-01-18 21:11:30,722 - __main__ - INFO - ============================================================
+2026-01-18 21:11:30,722 - __main__ - INFO - Primary threshold: 50% (operational definition)
+2026-01-18 21:11:30,722 - __main__ - INFO - Robustness checks: 40%, 60%
+2026-01-18 21:11:30,722 - __main__ - INFO - Loading data from C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\UIDAI_with_population.csv
+2026-01-18 21:11:32,213 - __main__ - INFO - Loaded 238,548 rows
+2026-01-18 21:11:32,311 - __main__ - INFO - Aggregating to pincode level
+2026-01-18 21:11:32,386 - __main__ - INFO - Computing district baselines
+2026-01-18 21:11:32,392 - __main__ - INFO - 
+Testing threshold: 40%
+2026-01-18 21:11:32,408 - __main__ - INFO -   Desert count: 474
+2026-01-18 21:11:32,408 - __main__ - INFO -   Mean gap: -70.73%
+2026-01-18 21:11:32,408 - __main__ - INFO - 
+Testing threshold: 50%
+2026-01-18 21:11:32,422 - __main__ - INFO -   Desert count: 1,055
+2026-01-18 21:11:32,422 - __main__ - INFO -   Mean gap: -61.91%
+2026-01-18 21:11:32,422 - __main__ - INFO - 
+Testing threshold: 60%
+2026-01-18 21:11:32,435 - __main__ - INFO -   Desert count: 1,813
+2026-01-18 21:11:32,435 - __main__ - INFO -   Mean gap: -54.72%
+2026-01-18 21:11:32,440 - __main__ - INFO - 
+Saved sensitivity analysis to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\antigravity\service_desert_sensitivity.csv
+2026-01-18 21:11:32,440 - __main__ - INFO - 
+============================================================
+2026-01-18 21:11:32,440 - __main__ - INFO - SUMMARY
+2026-01-18 21:11:32,440 - __main__ - INFO - ============================================================
+2026-01-18 21:11:32,440 - __main__ - INFO - Primary definition (50%): 1,055 service deserts
+2026-01-18 21:11:32,440 - __main__ - INFO - Robustness check (40%): 474 service deserts
+2026-01-18 21:11:32,440 - __main__ - INFO - Robustness check (60%): 1,813 service deserts
+2026-01-18 21:11:32,440 - __main__ - INFO - Variation from 50% baseline:
+2026-01-18 21:11:32,440 - __main__ - INFO -   40% threshold: -55.1% change
+2026-01-18 21:11:32,440 - __main__ - INFO -   60% threshold: +71.8% change
+2026-01-18 21:11:32,440 - __main__ - INFO - 
+Service desert sensitivity analysis complete
+2026-01-18 21:11:34,952 - __main__ - INFO - ============================================================
+2026-01-18 21:11:34,952 - __main__ - INFO - RURAL VS URBAN STATISTICAL VALIDATION
+2026-01-18 21:11:34,953 - __main__ - INFO - ============================================================
+2026-01-18 21:11:34,953 - __main__ - INFO - Loading data from C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\UIDAI_with_population.csv
+2026-01-18 21:11:36,539 - __main__ - INFO - Loaded 238,548 rows
+2026-01-18 21:11:36,649 - __main__ - INFO - Aggregating to pincode level
+2026-01-18 21:11:36,733 - __main__ - INFO - 
+Rural pincodes: 14,063
+2026-01-18 21:11:36,734 - __main__ - INFO - Urban pincodes: 1,081
+2026-01-18 21:11:36,734 - __main__ - INFO - 
+Computing effect size (Cohen's d)
+2026-01-18 21:11:36,734 - __main__ - INFO - Running Mann-Whitney U test
+2026-01-18 21:11:36,738 - __main__ - INFO - Computing bootstrap 95% CI for median difference
+2026-01-18 21:11:36,738 - __main__ - INFO - Running bootstrap with 10,000 resamples
+2026-01-18 21:11:41,350 - __main__ - INFO - 
+Saved statistics to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\antigravity\rural_urban_comparison_stats.json
+2026-01-18 21:11:41,356 - __main__ - INFO - Saved medians CSV to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\antigravity\rural_urban_medians.csv
+2026-01-18 21:11:41,356 - __main__ - INFO - Generating boxplot visualization
+2026-01-18 21:11:41,849 - __main__ - INFO - Saved boxplot to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\antigravity\rural_urban_boxplot.png
+2026-01-18 21:11:41,849 - __main__ - INFO - 
+============================================================
+2026-01-18 21:11:41,849 - __main__ - INFO - SUMMARY
+2026-01-18 21:11:41,849 - __main__ - INFO - ============================================================
+2026-01-18 21:11:41,849 - __main__ - INFO - Rural median activity: 68.76 per 100k
+2026-01-18 21:11:41,849 - __main__ - INFO - Urban median activity: 63.94 per 100k
+2026-01-18 21:11:41,849 - __main__ - INFO - Median difference: 4.81 per 100k
+2026-01-18 21:11:41,850 - __main__ - INFO - Cohen's d effect size: 0.047
+2026-01-18 21:11:41,850 - __main__ - INFO - Mann-Whitney U p-value: 1.1744e-04
+2026-01-18 21:11:41,850 - __main__ - INFO - Bootstrap 95% CI: [-0.07, 11.03]
+2026-01-18 21:11:41,850 - __main__ - INFO - 
+Rural vs urban statistical validation complete
+2026-01-18 21:11:46,965 - __main__ - INFO - ============================================================
+2026-01-18 21:11:46,965 - __main__ - INFO - POPULATION-ACTIVITY CORRELATION ANALYSIS
+2026-01-18 21:11:46,965 - __main__ - INFO - ============================================================
+2026-01-18 21:11:46,965 - __main__ - INFO - WARNING: Correlation does NOT imply service adequacy or equity
+2026-01-18 21:11:46,965 - __main__ - INFO - Emphasis on heteroskedasticity and descriptive interpretation only
+2026-01-18 21:11:46,965 - __main__ - INFO - 
+Loading data from C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\UIDAI_with_population.csv
+2026-01-18 21:11:48,501 - __main__ - INFO - Loaded 238,548 rows
+2026-01-18 21:11:48,608 - __main__ - INFO - Aggregating to pincode level
+2026-01-18 21:11:48,678 - __main__ - INFO - Analysis dataset: 19,879 pincodes
+2026-01-18 21:11:48,680 - __main__ - INFO - 
+Computing correlation coefficients
+2026-01-18 21:11:48,696 - __main__ - INFO - Pearson r: -0.0414 (p=5.4376e-09)
+2026-01-18 21:11:48,698 - __main__ - INFO - 
+Fitting Huber robust regression
+2026-01-18 21:11:48,816 - __main__ - INFO - Breusch-Pagan heteroskedasticity test:
+2026-01-18 21:11:48,817 - __main__ - INFO -   Statistic: 5.6926
+2026-01-18 21:11:48,817 - __main__ - INFO -   P-value: 1.7037e-02
+2026-01-18 21:11:48,817 - __main__ - INFO -   Result: SIGNIFICANT heteroskedasticity detected (p < 0.05)
+2026-01-18 21:11:48,819 - __main__ - INFO - 
+Saved statistics to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\antigravity\pop_activity_stats.json
+2026-01-18 21:11:48,819 - __main__ - INFO - 
+Generating scatter plot with LOWESS smoothing
+2026-01-18 21:11:53,871 - __main__ - INFO - Saved scatter plot to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\antigravity\pop_activity_scatter.png
+2026-01-18 21:11:53,871 - __main__ - INFO - Generating regression diagnostics
+2026-01-18 21:11:54,767 - __main__ - INFO - Saved regression diagnostics to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\antigravity\regression_diagnostics.png
+2026-01-18 21:11:54,767 - __main__ - INFO - 
+============================================================
+2026-01-18 21:11:54,767 - __main__ - INFO - SUMMARY
+2026-01-18 21:11:54,767 - __main__ - INFO - ============================================================
+2026-01-18 21:11:54,767 - __main__ - INFO - Pearson correlation: -0.0414
+2026-01-18 21:11:54,767 - __main__ - INFO - Spearman correlation: -0.7653
+2026-01-18 21:11:54,767 - __main__ - INFO - Heteroskedasticity: PRESENT
+2026-01-18 21:11:54,767 - __main__ - INFO - 
+IMPORTANT: These correlations describe data patterns only.
+2026-01-18 21:11:54,767 - __main__ - INFO - They do NOT imply service adequacy, equity, or normative conclusions.
+2026-01-18 21:11:54,767 - __main__ - INFO - Heteroskedasticity indicates variance in service delivery across
+2026-01-18 21:11:54,767 - __main__ - INFO - population scales, suggesting uneven infrastructure distribution.
+2026-01-18 21:11:54,767 - __main__ - INFO - 
+Population-activity correlation analysis complete
+2026-01-18 21:11:56,074 - __main__ - INFO - ============================================================
+2026-01-18 21:11:56,074 - __main__ - INFO - OUTLIER AND ANOMALY DETECTION
+2026-01-18 21:11:56,074 - __main__ - INFO - ============================================================
+2026-01-18 21:11:56,074 - __main__ - INFO - Detecting extreme activity_per_100k using IQR and MAD methods
+2026-01-18 21:11:56,074 - __main__ - INFO - Output capped to top 100 most policy-relevant cases
+2026-01-18 21:11:56,074 - __main__ - INFO - 
+Loading data from C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\UIDAI_with_population.csv
+2026-01-18 21:11:57,572 - __main__ - INFO - Loaded 238,548 rows
+2026-01-18 21:11:57,664 - __main__ - INFO - Aggregating to pincode level
+2026-01-18 21:11:57,744 - __main__ - INFO - 
+Detecting outliers using IQR method
+2026-01-18 21:11:57,746 - __main__ - INFO - Detecting outliers using MAD method
+2026-01-18 21:11:57,748 - __main__ - INFO - Outliers detected: 2,936 (14.77%)
+2026-01-18 21:11:57,748 - __main__ - INFO - 
+Assigning reason codes to outliers
+2026-01-18 21:11:57,796 - __main__ - INFO - 
+Saved top 100 anomalies to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\antigravity\anomaly_list.csv
+2026-01-18 21:11:57,796 - __main__ - INFO - 
+============================================================
+2026-01-18 21:11:57,796 - __main__ - INFO - SUMMARY
+2026-01-18 21:11:57,796 - __main__ - INFO - ============================================================
+2026-01-18 21:11:57,796 - __main__ - INFO - Total outliers detected: 2,936
+2026-01-18 21:11:57,796 - __main__ - INFO - Top 100 most policy-relevant anomalies exported
+2026-01-18 21:11:57,796 - __main__ - INFO - 
+Reason code distribution (top 100):
+2026-01-18 21:11:57,797 - __main__ - INFO -   Extreme high activity (>500% of district): 100
+2026-01-18 21:11:57,797 - __main__ - INFO -   Very small population (<500): 14
+2026-01-18 21:11:57,797 - __main__ - INFO -   Very low absolute activity (<50 records): 3
+2026-01-18 21:11:57,797 - __main__ - INFO - 
+Top 5 most policy-relevant anomalies:
+2026-01-18 21:11:57,797 - __main__ - INFO -   176304 (Chamba, Himachalpradesh)
+2026-01-18 21:11:57,797 - __main__ - INFO -     Activity: 462500.0 per 100k (district avg: 66.6)
+2026-01-18 21:11:57,797 - __main__ - INFO -     Reason: Extreme high activity (>500% of district); Very small population (<500)
+2026-01-18 21:11:57,797 - __main__ - INFO -   177108 (Kangra, Himachalpradesh)
+2026-01-18 21:11:57,798 - __main__ - INFO -     Activity: 266666.7 per 100k (district avg: 63.3)
+2026-01-18 21:11:57,798 - __main__ - INFO -     Reason: Extreme high activity (>500% of district); Very small population (<500)
+2026-01-18 21:11:57,798 - __main__ - INFO -   440030 (Nagpur, Maharashtra)
+2026-01-18 21:11:57,798 - __main__ - INFO -     Activity: 211111.1 per 100k (district avg: 59.6)
+2026-01-18 21:11:57,798 - __main__ - INFO -     Reason: Extreme high activity (>500% of district); Very small population (<500)
+2026-01-18 21:11:57,798 - __main__ - INFO -   721125 (Paschim Medinipur, Westbengal)
+2026-01-18 21:11:57,798 - __main__ - INFO -     Activity: 319871.8 per 100k (district avg: 86.1)
+2026-01-18 21:11:57,798 - __main__ - INFO -     Reason: Extreme high activity (>500% of district); Very small population (<500)
+2026-01-18 21:11:57,798 - __main__ - INFO -   580025 (Dharwad, Karnataka)
+2026-01-18 21:11:57,798 - __main__ - INFO -     Activity: 214102.6 per 100k (district avg: 64.9)
+2026-01-18 21:11:57,798 - __main__ - INFO -     Reason: Extreme high activity (>500% of district); Very small population (<500)
+2026-01-18 21:11:57,798 - __main__ - INFO - 
+Outlier and anomaly detection complete
+2026-01-18 21:11:59,249 - __main__ - INFO - ============================================================
+2026-01-18 21:11:59,250 - __main__ - INFO - DISTRICT-LEVEL VERIFICATION
+2026-01-18 21:11:59,250 - __main__ - INFO - ============================================================
+2026-01-18 21:11:59,250 - __main__ - INFO - Verifying top 15 districts by service desert concentration
+2026-01-18 21:11:59,250 - __main__ - INFO - 
+Loading data from C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\UIDAI_with_population.csv
+2026-01-18 21:12:00,746 - __main__ - INFO - Loaded 238,548 rows
+2026-01-18 21:12:00,846 - __main__ - INFO - Aggregating to pincode level
+2026-01-18 21:12:00,925 - __main__ - INFO - Computing district baselines
+2026-01-18 21:12:00,948 - __main__ - INFO - 
+Applying service desert definition (50% threshold)
+2026-01-18 21:12:00,951 - __main__ - INFO - Total service deserts identified: 1,055
+2026-01-18 21:12:00,951 - __main__ - INFO - 
+Aggregating service deserts by district
+2026-01-18 21:12:01,298 - __main__ - INFO - 
+Saved top 15 districts to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\antigravity\district_deserts_top15.csv
+2026-01-18 21:12:01,298 - __main__ - INFO - Generating bar chart visualization
+2026-01-18 21:12:01,646 - __main__ - INFO - Saved bar chart to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\antigravity\district_desert_counts.png
+2026-01-18 21:12:01,646 - __main__ - INFO - 
+============================================================
+2026-01-18 21:12:01,646 - __main__ - INFO - SUMMARY - TOP 15 DISTRICTS
+2026-01-18 21:12:01,646 - __main__ - INFO - ============================================================
+2026-01-18 21:12:01,646 - __main__ - INFO - Mayurbhanj (Odisha)
+2026-01-18 21:12:01,646 - __main__ - INFO -   Service deserts: 11
+2026-01-18 21:12:01,646 - __main__ - INFO -   Rural pincodes: 64
+2026-01-18 21:12:01,646 - __main__ - INFO -   Desert ratio: 17.19%
+2026-01-18 21:12:01,646 - __main__ - INFO -   Affected population: 16,579,346
+2026-01-18 21:12:01,646 - __main__ - INFO - 
+2026-01-18 21:12:01,646 - __main__ - INFO - Patna (_Bihar)
+2026-01-18 21:12:01,646 - __main__ - INFO -   Service deserts: 11
+2026-01-18 21:12:01,646 - __main__ - INFO -   Rural pincodes: 42
+2026-01-18 21:12:01,646 - __main__ - INFO -   Desert ratio: 26.19%
+2026-01-18 21:12:01,646 - __main__ - INFO -   Affected population: 32,497,985
+2026-01-18 21:12:01,646 - __main__ - INFO - 
+2026-01-18 21:12:01,646 - __main__ - INFO - Pune (Maharashtra)
+2026-01-18 21:12:01,646 - __main__ - INFO -   Service deserts: 10
+2026-01-18 21:12:01,646 - __main__ - INFO -   Rural pincodes: 92
+2026-01-18 21:12:01,646 - __main__ - INFO -   Desert ratio: 10.87%
+2026-01-18 21:12:01,646 - __main__ - INFO -   Affected population: 13,679,177
+2026-01-18 21:12:01,646 - __main__ - INFO - 
+2026-01-18 21:12:01,646 - __main__ - INFO - Guntur (_Andhrapradesh)
+2026-01-18 21:12:01,646 - __main__ - INFO -   Service deserts: 10
+2026-01-18 21:12:01,646 - __main__ - INFO -   Rural pincodes: 78
+2026-01-18 21:12:01,646 - __main__ - INFO -   Desert ratio: 12.82%
+2026-01-18 21:12:01,646 - __main__ - INFO -   Affected population: 8,149,795
+2026-01-18 21:12:01,646 - __main__ - INFO - 
+2026-01-18 21:12:01,646 - __main__ - INFO - Chittoor (_Andhrapradesh)
+2026-01-18 21:12:01,646 - __main__ - INFO -   Service deserts: 10
+2026-01-18 21:12:01,646 - __main__ - INFO -   Rural pincodes: 71
+2026-01-18 21:12:01,646 - __main__ - INFO -   Desert ratio: 14.08%
+2026-01-18 21:12:01,646 - __main__ - INFO -   Affected population: 13,180,793
+2026-01-18 21:12:01,646 - __main__ - INFO - 
+2026-01-18 21:12:01,646 - __main__ - INFO - Raigarh (Maharashtra)
+2026-01-18 21:12:01,646 - __main__ - INFO -   Service deserts: 9
+2026-01-18 21:12:01,646 - __main__ - INFO -   Rural pincodes: 51
+2026-01-18 21:12:01,646 - __main__ - INFO -   Desert ratio: 17.65%
+2026-01-18 21:12:01,646 - __main__ - INFO -   Affected population: 11,840,943
+2026-01-18 21:12:01,646 - __main__ - INFO - 
+2026-01-18 21:12:01,646 - __main__ - INFO - Kurnool (_Andhrapradesh)
+2026-01-18 21:12:01,646 - __main__ - INFO -   Service deserts: 8
+2026-01-18 21:12:01,646 - __main__ - INFO -   Rural pincodes: 60
+2026-01-18 21:12:01,646 - __main__ - INFO -   Desert ratio: 13.33%
+2026-01-18 21:12:01,646 - __main__ - INFO -   Affected population: 9,519,233
+2026-01-18 21:12:01,646 - __main__ - INFO - 
+2026-01-18 21:12:01,646 - __main__ - INFO - Lucknow (Uttar Pradesh)
+2026-01-18 21:12:01,646 - __main__ - INFO -   Service deserts: 8
+2026-01-18 21:12:01,651 - __main__ - INFO -   Rural pincodes: 23
+2026-01-18 21:12:01,651 - __main__ - INFO -   Desert ratio: 34.78%
+2026-01-18 21:12:01,651 - __main__ - INFO -   Affected population: 12,852,467
+2026-01-18 21:12:01,651 - __main__ - INFO - 
+2026-01-18 21:12:01,651 - __main__ - INFO - Warangal (_Andhrapradesh)
+2026-01-18 21:12:01,651 - __main__ - INFO -   Service deserts: 7
+2026-01-18 21:12:01,651 - __main__ - INFO -   Rural pincodes: 63
+2026-01-18 21:12:01,651 - __main__ - INFO -   Desert ratio: 11.11%
+2026-01-18 21:12:01,651 - __main__ - INFO -   Affected population: 7,292,272
+2026-01-18 21:12:01,651 - __main__ - INFO - 
+2026-01-18 21:12:01,651 - __main__ - INFO - Alwar (Rajasthan)
+2026-01-18 21:12:01,651 - __main__ - INFO -   Service deserts: 7
+2026-01-18 21:12:01,651 - __main__ - INFO -   Rural pincodes: 43
+2026-01-18 21:12:01,651 - __main__ - INFO -   Desert ratio: 16.28%
+2026-01-18 21:12:01,651 - __main__ - INFO -   Affected population: 14,552,075
+2026-01-18 21:12:01,651 - __main__ - INFO - 
+2026-01-18 21:12:01,651 - __main__ - INFO - Nagapattinam (Tamilnadu)
+2026-01-18 21:12:01,651 - __main__ - INFO -   Service deserts: 7
+2026-01-18 21:12:01,651 - __main__ - INFO -   Rural pincodes: 66
+2026-01-18 21:12:01,651 - __main__ - INFO -   Desert ratio: 10.61%
+2026-01-18 21:12:01,651 - __main__ - INFO -   Affected population: 3,054,538
+2026-01-18 21:12:01,651 - __main__ - INFO - 
+2026-01-18 21:12:01,653 - __main__ - INFO - Vaishali (_Bihar)
+2026-01-18 21:12:01,653 - __main__ - INFO -   Service deserts: 7
+2026-01-18 21:12:01,653 - __main__ - INFO -   Rural pincodes: 18
+2026-01-18 21:12:01,653 - __main__ - INFO -   Desert ratio: 38.89%
+2026-01-18 21:12:01,653 - __main__ - INFO -   Affected population: 30,318,923
+2026-01-18 21:12:01,653 - __main__ - INFO - 
+2026-01-18 21:12:01,653 - __main__ - INFO - Bulandshahr (Uttar Pradesh)
+2026-01-18 21:12:01,654 - __main__ - INFO -   Service deserts: 7
+2026-01-18 21:12:01,654 - __main__ - INFO -   Rural pincodes: 28
+2026-01-18 21:12:01,654 - __main__ - INFO -   Desert ratio: 25.00%
+2026-01-18 21:12:01,654 - __main__ - INFO -   Affected population: 10,885,608
+2026-01-18 21:12:01,654 - __main__ - INFO - 
+2026-01-18 21:12:01,654 - __main__ - INFO - Nashik (Maharashtra)
+2026-01-18 21:12:01,654 - __main__ - INFO -   Service deserts: 7
+2026-01-18 21:12:01,654 - __main__ - INFO -   Rural pincodes: 64
+2026-01-18 21:12:01,654 - __main__ - INFO -   Desert ratio: 10.94%
+2026-01-18 21:12:01,654 - __main__ - INFO -   Affected population: 12,792,360
+2026-01-18 21:12:01,654 - __main__ - INFO - 
+2026-01-18 21:12:01,654 - __main__ - INFO - East Godavari (_Andhrapradesh)
+2026-01-18 21:12:01,654 - __main__ - INFO -   Service deserts: 7
+2026-01-18 21:12:01,654 - __main__ - INFO -   Rural pincodes: 78
+2026-01-18 21:12:01,654 - __main__ - INFO -   Desert ratio: 8.97%
+2026-01-18 21:12:01,654 - __main__ - INFO -   Affected population: 6,161,181
+2026-01-18 21:12:01,654 - __main__ - INFO - 
+2026-01-18 21:12:01,654 - __main__ - INFO - District-level verification complete
+2026-01-18 21:12:03,192 - __main__ - INFO - ============================================================
+2026-01-18 21:12:03,192 - __main__ - INFO - SUMMARY VISUALIZATIONS
+2026-01-18 21:12:03,192 - __main__ - INFO - ============================================================
+2026-01-18 21:12:03,192 - __main__ - INFO - Generating individual PNG plots (no combined grids)
+2026-01-18 21:12:03,192 - __main__ - INFO - Generating imputation distribution plot
+2026-01-18 21:12:03,498 - __main__ - INFO -   Saved: viz_imputation_distribution.png
+2026-01-18 21:12:03,498 - __main__ - INFO - Generating sensitivity comparison plot
+2026-01-18 21:12:03,706 - __main__ - INFO -   Saved: viz_sensitivity_comparison.png
+2026-01-18 21:12:03,706 - __main__ - INFO - Generating activity distribution histogram
+2026-01-18 21:12:05,634 - __main__ - INFO -   Saved: viz_activity_distribution.png
+2026-01-18 21:12:05,652 - __main__ - INFO - Generating top anomalies visualization
+2026-01-18 21:12:05,943 - __main__ - INFO -   Saved: viz_top_anomalies.png
+2026-01-18 21:12:05,943 - __main__ - INFO - 
+============================================================
+2026-01-18 21:12:05,943 - __main__ - INFO - SUMMARY
+2026-01-18 21:12:05,943 - __main__ - INFO - ============================================================
+2026-01-18 21:12:05,943 - __main__ - INFO - Individual visualizations generated:
+2026-01-18 21:12:05,949 - __main__ - INFO - 
+Summary visualizations complete
+2026-01-18 21:12:07,180 - __main__ - INFO - ============================================================
+2026-01-18 21:12:07,180 - __main__ - INFO - CONSOLIDATED REPORT GENERATION
+2026-01-18 21:12:07,181 - __main__ - INFO - ============================================================
+2026-01-18 21:12:07,181 - __main__ - INFO - Validation-oriented tone: confirming existing findings
+2026-01-18 21:12:07,181 - __main__ - INFO - 
+Loading analysis outputs
+2026-01-18 21:12:07,209 - __main__ - INFO - Generating markdown report
+2026-01-18 21:12:07,216 - __main__ - INFO - 
+Saved consolidated report to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\antigravity\antigravity_report.md
+2026-01-18 21:12:07,216 - __main__ - INFO - 
+============================================================
+2026-01-18 21:12:07,216 - __main__ - INFO - SUMMARY
+2026-01-18 21:12:07,216 - __main__ - INFO - ============================================================
+2026-01-18 21:12:07,216 - __main__ - INFO - Consolidated markdown report generated with:
+2026-01-18 21:12:07,216 - __main__ - INFO -   - Executive summary (5 key findings)
+2026-01-18 21:12:07,216 - __main__ - INFO -   - 6 analysis sections with embedded visualizations
+2026-01-18 21:12:07,216 - __main__ - INFO -   - Validation-oriented tone (no new metrics/narratives)
+2026-01-18 21:12:07,216 - __main__ - INFO -   - Non-normative interpretation throughout
+2026-01-18 21:12:07,216 - __main__ - INFO - 
+Consolidated report generation complete
+2026-01-18 22:10:42,589 - __main__ - INFO - ********************************************************************************
+2026-01-18 22:10:42,589 - __main__ - INFO - DOMAIN ANALYSIS PIPELINE
+2026-01-18 22:10:42,589 - __main__ - INFO - ********************************************************************************
+2026-01-18 22:10:42,589 - __main__ - INFO - Start time: 2026-01-18 22:10:42
+2026-01-18 22:10:42,589 - __main__ - INFO - Base directory: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data
+2026-01-18 22:10:42,589 - __main__ - INFO - Number of scripts: 6
+2026-01-18 22:10:42,589 - __main__ - INFO - 
+2026-01-18 22:10:42,589 - __main__ - INFO - 
+Step 1/6: 09_service_deserts.py
+2026-01-18 22:10:42,589 - __main__ - INFO - ================================================================================
+2026-01-18 22:10:42,594 - __main__ - INFO - RUNNING: 09_service_deserts.py
+2026-01-18 22:10:42,594 - __main__ - INFO - ================================================================================
+2026-01-18 22:10:44,856 - __main__ - INFO - ============================================================
+2026-01-18 22:10:44,858 - __main__ - INFO - SERVICE DESERTS DOMAIN ANALYSIS
+2026-01-18 22:10:44,858 - __main__ - INFO - ============================================================
+2026-01-18 22:10:44,858 - __main__ - INFO - Using LOCKED definitions from main notebook
+2026-01-18 22:10:44,858 - __main__ - INFO - Threshold: 50% district baseline (no alternatives)
+2026-01-18 22:10:44,860 - __main__ - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:10:47,577 - __main__ - INFO - Loaded 238,548 rows
+2026-01-18 22:10:47,578 - __main__ - INFO - Aggregating to pincode level
+2026-01-18 22:10:47,708 - __main__ - INFO - Computing district baselines
+2026-01-18 22:10:47,748 - __main__ - INFO - Applying LOCKED desert definition (50% threshold)
+2026-01-18 22:10:47,769 - __main__ - INFO - Service deserts identified: 1,734
+2026-01-18 22:10:48,072 - __main__ - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_metrics.csv
+2026-01-18 22:10:48,072 - __main__ - INFO - Computing district summary
+2026-01-18 22:10:49,374 - __main__ - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_summary.csv
+2026-01-18 22:10:49,374 - __main__ - INFO - Running validation checks
+2026-01-18 22:10:49,386 - __main__ - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\validation_service_deserts.csv
+2026-01-18 22:10:49,386 - __main__ - INFO - Generating visualizations
+2026-01-18 22:10:52,002 - __main__ - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\service_deserts
+2026-01-18 22:10:52,463 - __main__ - ERROR - Script 09_service_deserts.py failed with return code 1
+2026-01-18 22:10:52,464 - __main__ - ERROR - STDERR:
+2026-01-18 22:10:44,856 - __main__ - INFO - ============================================================
+2026-01-18 22:10:44,858 - __main__ - INFO - SERVICE DESERTS DOMAIN ANALYSIS
+2026-01-18 22:10:44,858 - __main__ - INFO - ============================================================
+2026-01-18 22:10:44,858 - __main__ - INFO - Using LOCKED definitions from main notebook
+2026-01-18 22:10:44,858 - __main__ - INFO - Threshold: 50% district baseline (no alternatives)
+2026-01-18 22:10:44,860 - __main__ - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:10:47,577 - __main__ - INFO - Loaded 238,548 rows
+2026-01-18 22:10:47,578 - __main__ - INFO - Aggregating to pincode level
+2026-01-18 22:10:47,708 - __main__ - INFO - Computing district baselines
+2026-01-18 22:10:47,748 - __main__ - INFO - Applying LOCKED desert definition (50% threshold)
+2026-01-18 22:10:47,769 - __main__ - INFO - Service deserts identified: 1,734
+2026-01-18 22:10:48,072 - __main__ - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_metrics.csv
+2026-01-18 22:10:48,072 - __main__ - INFO - Computing district summary
+2026-01-18 22:10:49,374 - __main__ - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_summary.csv
+2026-01-18 22:10:49,374 - __main__ - INFO - Running validation checks
+2026-01-18 22:10:49,386 - __main__ - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\validation_service_deserts.csv
+2026-01-18 22:10:49,386 - __main__ - INFO - Generating visualizations
+2026-01-18 22:10:52,002 - __main__ - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\service_deserts
+Traceback (most recent call last):
+  File "C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\antigravity_scripts\09_service_deserts.py", line 302, in <module>
+    main()
+  File "C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\antigravity_scripts\09_service_deserts.py", line 287, in main
+    f.write(notes)
+  File "C:\Users\Lalit Hire\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2265' in position 1574: character maps to <undefined>
+
+2026-01-18 22:10:52,464 - __main__ - ERROR - 
+2026-01-18 22:10:52,464 - __main__ - ERROR - ********************************************************************************
+2026-01-18 22:10:52,466 - __main__ - ERROR - PIPELINE FAILED
+2026-01-18 22:10:52,466 - __main__ - ERROR - ********************************************************************************
+2026-01-18 22:10:52,466 - __main__ - ERROR - Failed at script: 09_service_deserts.py
+2026-01-18 22:10:52,469 - __main__ - ERROR - Check C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\antigravity\antigravity.log for details
+2026-01-18 22:11:08,810 - __main__ - INFO - ============================================================
+2026-01-18 22:11:08,810 - __main__ - INFO - SERVICE DESERTS DOMAIN ANALYSIS
+2026-01-18 22:11:08,812 - __main__ - INFO - ============================================================
+2026-01-18 22:11:08,813 - __main__ - INFO - Using LOCKED definitions from main notebook
+2026-01-18 22:11:08,813 - __main__ - INFO - Threshold: 50% district baseline (no alternatives)
+2026-01-18 22:11:08,813 - __main__ - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:11:12,412 - __main__ - INFO - Loaded 238,548 rows
+2026-01-18 22:11:12,414 - __main__ - INFO - Aggregating to pincode level
+2026-01-18 22:11:12,639 - __main__ - INFO - Computing district baselines
+2026-01-18 22:11:12,714 - __main__ - INFO - Applying LOCKED desert definition (50% threshold)
+2026-01-18 22:11:12,745 - __main__ - INFO - Service deserts identified: 1,734
+2026-01-18 22:11:13,201 - __main__ - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_metrics.csv
+2026-01-18 22:11:13,202 - __main__ - INFO - Computing district summary
+2026-01-18 22:11:14,647 - __main__ - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_summary.csv
+2026-01-18 22:11:14,647 - __main__ - INFO - Running validation checks
+2026-01-18 22:11:14,661 - __main__ - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\validation_service_deserts.csv
+2026-01-18 22:11:14,661 - __main__ - INFO - Generating visualizations
+2026-01-18 22:11:17,247 - __main__ - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\service_deserts
+2026-01-18 22:12:13,177 - __main__ - INFO - ============================================================
+2026-01-18 22:12:13,177 - __main__ - INFO - SERVICE DESERTS DOMAIN ANALYSIS
+2026-01-18 22:12:13,178 - __main__ - INFO - ============================================================
+2026-01-18 22:12:13,178 - __main__ - INFO - Using LOCKED definitions from main notebook
+2026-01-18 22:12:13,178 - __main__ - INFO - Threshold: 50% district baseline (no alternatives)
+2026-01-18 22:12:13,178 - __main__ - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:12:14,937 - __main__ - INFO - Loaded 238,548 rows
+2026-01-18 22:12:14,937 - __main__ - INFO - Aggregating to pincode level
+2026-01-18 22:12:15,016 - __main__ - INFO - Computing district baselines
+2026-01-18 22:12:15,036 - __main__ - INFO - Applying LOCKED desert definition (50% threshold)
+2026-01-18 22:12:15,037 - __main__ - INFO - Service deserts identified: 1,734
+2026-01-18 22:12:15,241 - __main__ - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_metrics.csv
+2026-01-18 22:12:15,241 - __main__ - INFO - Computing district summary
+2026-01-18 22:12:15,726 - __main__ - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_summary.csv
+2026-01-18 22:12:15,726 - __main__ - INFO - Running validation checks
+2026-01-18 22:12:15,731 - __main__ - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\validation_service_deserts.csv
+2026-01-18 22:12:15,731 - __main__ - INFO - Generating visualizations
+2026-01-18 22:12:17,003 - __main__ - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\service_deserts
+2026-01-18 22:17:03,393 - INFO - ********************************************************************************
+2026-01-18 22:17:03,394 - INFO - DOMAIN ANALYSIS PIPELINE
+2026-01-18 22:17:03,394 - INFO - ********************************************************************************
+2026-01-18 22:17:03,396 - INFO - Start time: 2026-01-18 22:17:03
+2026-01-18 22:17:03,396 - INFO - Base directory: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data
+2026-01-18 22:17:03,397 - INFO - Number of scripts: 6
+2026-01-18 22:17:03,397 - INFO - 
+2026-01-18 22:17:03,397 - INFO - 
+Step 1/6: 09_service_deserts.py
+2026-01-18 22:17:03,398 - INFO - ================================================================================
+2026-01-18 22:17:03,398 - INFO - RUNNING: 09_service_deserts.py
+2026-01-18 22:17:03,398 - INFO - ================================================================================
+2026-01-18 22:17:06,087 - INFO - ============================================================
+2026-01-18 22:17:06,087 - INFO - SERVICE DESERTS DOMAIN ANALYSIS
+2026-01-18 22:17:06,087 - INFO - ============================================================
+2026-01-18 22:17:06,087 - INFO - Using LOCKED definitions from main notebook
+2026-01-18 22:17:06,087 - INFO - Threshold: 50% district baseline (no alternatives)
+2026-01-18 22:17:06,087 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:17:08,240 - INFO - Loaded 238,548 rows
+2026-01-18 22:17:08,241 - INFO - Aggregating to pincode level
+2026-01-18 22:17:08,372 - INFO - Computing district baselines
+2026-01-18 22:17:08,410 - INFO - Applying LOCKED desert definition (50% threshold)
+2026-01-18 22:17:08,425 - INFO - Service deserts identified: 1,734
+2026-01-18 22:17:08,658 - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_metrics.csv
+2026-01-18 22:17:08,658 - INFO - Computing district summary
+2026-01-18 22:17:09,474 - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_summary.csv
+2026-01-18 22:17:09,474 - INFO - Running validation checks
+2026-01-18 22:17:09,484 - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\validation_service_deserts.csv
+2026-01-18 22:17:09,484 - INFO - Generating visualizations
+2026-01-18 22:17:11,591 - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\service_deserts
+2026-01-18 22:17:11,936 - INFO - 2026-01-18 22:17:06,087 - INFO - ============================================================
+2026-01-18 22:17:06,087 - INFO - SERVICE DESERTS DOMAIN ANALYSIS
+2026-01-18 22:17:06,087 - INFO - ============================================================
+2026-01-18 22:17:06,087 - INFO - Using LOCKED definitions from main notebook
+2026-01-18 22:17:06,087 - INFO - Threshold: 50% district baseline (no alternatives)
+2026-01-18 22:17:06,087 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:17:08,240 - INFO - Loaded 238,548 rows
+2026-01-18 22:17:08,241 - INFO - Aggregating to pincode level
+2026-01-18 22:17:08,372 - INFO - Computing district baselines
+2026-01-18 22:17:08,410 - INFO - Applying LOCKED desert definition (50% threshold)
+2026-01-18 22:17:08,425 - INFO - Service deserts identified: 1,734
+2026-01-18 22:17:08,658 - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_metrics.csv
+2026-01-18 22:17:08,658 - INFO - Computing district summary
+2026-01-18 22:17:09,474 - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_summary.csv
+2026-01-18 22:17:09,474 - INFO - Running validation checks
+2026-01-18 22:17:09,484 - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\validation_service_deserts.csv
+2026-01-18 22:17:09,484 - INFO - Generating visualizations
+2026-01-18 22:17:11,591 - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\service_deserts
+
+2026-01-18 22:17:11,936 - ERROR - Script 09_service_deserts.py failed with return code 1
+2026-01-18 22:17:11,936 - ERROR - STDERR:
+Traceback (most recent call last):
+  File "C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\antigravity_scripts\09_service_deserts.py", line 304, in <module>
+    main()
+  File "C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\antigravity_scripts\09_service_deserts.py", line 289, in main
+    f.write(notes)
+  File "C:\Users\Lalit Hire\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2265' in position 1574: character maps to <undefined>
+
+2026-01-18 22:17:11,936 - ERROR - 
+2026-01-18 22:17:11,936 - ERROR - ********************************************************************************
+2026-01-18 22:17:11,936 - ERROR - PIPELINE FAILED
+2026-01-18 22:17:11,936 - ERROR - ********************************************************************************
+2026-01-18 22:17:11,936 - ERROR - Failed at script: 09_service_deserts.py
+2026-01-18 22:17:11,936 - ERROR - Check C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\antigravity\antigravity.log for details
+2026-01-18 22:17:26,839 - INFO - ============================================================
+2026-01-18 22:17:26,839 - INFO - SERVICE DESERTS DOMAIN ANALYSIS
+2026-01-18 22:17:26,839 - INFO - ============================================================
+2026-01-18 22:17:26,839 - INFO - Using LOCKED definitions from main notebook
+2026-01-18 22:17:26,839 - INFO - Threshold: 50% district baseline (no alternatives)
+2026-01-18 22:17:26,839 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:17:28,616 - INFO - Loaded 238,548 rows
+2026-01-18 22:17:28,616 - INFO - Aggregating to pincode level
+2026-01-18 22:17:28,700 - INFO - Computing district baselines
+2026-01-18 22:17:28,723 - INFO - Applying LOCKED desert definition (50% threshold)
+2026-01-18 22:17:28,731 - INFO - Service deserts identified: 1,734
+2026-01-18 22:17:28,934 - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_metrics.csv
+2026-01-18 22:17:28,934 - INFO - Computing district summary
+2026-01-18 22:17:29,634 - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_summary.csv
+2026-01-18 22:17:29,634 - INFO - Running validation checks
+2026-01-18 22:17:29,636 - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\validation_service_deserts.csv
+2026-01-18 22:17:29,636 - INFO - Generating visualizations
+2026-01-18 22:17:31,128 - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\service_deserts
+2026-01-18 22:17:59,486 - INFO - ********************************************************************************
+2026-01-18 22:17:59,486 - INFO - DOMAIN ANALYSIS PIPELINE
+2026-01-18 22:17:59,486 - INFO - ********************************************************************************
+2026-01-18 22:17:59,486 - INFO - Start time: 2026-01-18 22:17:59
+2026-01-18 22:17:59,486 - INFO - Base directory: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data
+2026-01-18 22:17:59,488 - INFO - Number of scripts: 6
+2026-01-18 22:17:59,488 - INFO - 
+2026-01-18 22:17:59,488 - INFO - 
+Step 1/6: 09_service_deserts.py
+2026-01-18 22:17:59,489 - INFO - ================================================================================
+2026-01-18 22:17:59,489 - INFO - RUNNING: 09_service_deserts.py
+2026-01-18 22:17:59,489 - INFO - ================================================================================
+2026-01-18 22:18:00,894 - INFO - ============================================================
+2026-01-18 22:18:00,894 - INFO - SERVICE DESERTS DOMAIN ANALYSIS
+2026-01-18 22:18:00,894 - INFO - ============================================================
+2026-01-18 22:18:00,894 - INFO - Using LOCKED definitions from main notebook
+2026-01-18 22:18:00,894 - INFO - Threshold: 50% district baseline (no alternatives)
+2026-01-18 22:18:00,894 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:18:02,622 - INFO - Loaded 238,548 rows
+2026-01-18 22:18:02,623 - INFO - Aggregating to pincode level
+2026-01-18 22:18:02,698 - INFO - Computing district baselines
+2026-01-18 22:18:02,719 - INFO - Applying LOCKED desert definition (50% threshold)
+2026-01-18 22:18:02,727 - INFO - Service deserts identified: 1,734
+2026-01-18 22:18:02,897 - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_metrics.csv
+2026-01-18 22:18:02,897 - INFO - Computing district summary
+2026-01-18 22:18:03,463 - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_summary.csv
+2026-01-18 22:18:03,463 - INFO - Running validation checks
+2026-01-18 22:18:03,468 - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\validation_service_deserts.csv
+2026-01-18 22:18:03,468 - INFO - Generating visualizations
+2026-01-18 22:18:04,733 - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\service_deserts
+2026-01-18 22:18:04,954 - INFO - 2026-01-18 22:18:00,894 - INFO - ============================================================
+2026-01-18 22:18:00,894 - INFO - SERVICE DESERTS DOMAIN ANALYSIS
+2026-01-18 22:18:00,894 - INFO - ============================================================
+2026-01-18 22:18:00,894 - INFO - Using LOCKED definitions from main notebook
+2026-01-18 22:18:00,894 - INFO - Threshold: 50% district baseline (no alternatives)
+2026-01-18 22:18:00,894 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:18:02,622 - INFO - Loaded 238,548 rows
+2026-01-18 22:18:02,623 - INFO - Aggregating to pincode level
+2026-01-18 22:18:02,698 - INFO - Computing district baselines
+2026-01-18 22:18:02,719 - INFO - Applying LOCKED desert definition (50% threshold)
+2026-01-18 22:18:02,727 - INFO - Service deserts identified: 1,734
+2026-01-18 22:18:02,897 - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_metrics.csv
+2026-01-18 22:18:02,897 - INFO - Computing district summary
+2026-01-18 22:18:03,463 - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_summary.csv
+2026-01-18 22:18:03,463 - INFO - Running validation checks
+2026-01-18 22:18:03,468 - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\validation_service_deserts.csv
+2026-01-18 22:18:03,468 - INFO - Generating visualizations
+2026-01-18 22:18:04,733 - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\service_deserts
+
+2026-01-18 22:18:04,954 - ERROR - Script 09_service_deserts.py failed with return code 1
+2026-01-18 22:18:04,955 - ERROR - STDERR:
+Traceback (most recent call last):
+  File "C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\antigravity_scripts\09_service_deserts.py", line 304, in <module>
+    main()
+  File "C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\antigravity_scripts\09_service_deserts.py", line 289, in main
+    f.write(notes)
+  File "C:\Users\Lalit Hire\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2265' in position 1574: character maps to <undefined>
+
+2026-01-18 22:18:04,956 - ERROR - 
+2026-01-18 22:18:04,956 - ERROR - ********************************************************************************
+2026-01-18 22:18:04,956 - ERROR - PIPELINE FAILED
+2026-01-18 22:18:04,956 - ERROR - ********************************************************************************
+2026-01-18 22:18:04,956 - ERROR - Failed at script: 09_service_deserts.py
+2026-01-18 22:18:04,957 - ERROR - Check C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\antigravity\antigravity.log for details
+2026-01-18 22:18:41,564 - INFO - ============================================================
+2026-01-18 22:18:41,565 - INFO - SERVICE DESERTS DOMAIN ANALYSIS
+2026-01-18 22:18:41,565 - INFO - ============================================================
+2026-01-18 22:18:41,565 - INFO - Using LOCKED definitions from main notebook
+2026-01-18 22:18:41,565 - INFO - Threshold: 50% district baseline (no alternatives)
+2026-01-18 22:18:41,566 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:18:43,471 - INFO - Loaded 238,548 rows
+2026-01-18 22:18:43,471 - INFO - Aggregating to pincode level
+2026-01-18 22:18:43,563 - INFO - Computing district baselines
+2026-01-18 22:18:43,591 - INFO - Applying LOCKED desert definition (50% threshold)
+2026-01-18 22:18:43,599 - INFO - Service deserts identified: 1,734
+2026-01-18 22:18:43,841 - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_metrics.csv
+2026-01-18 22:18:43,841 - INFO - Computing district summary
+2026-01-18 22:18:44,506 - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_summary.csv
+2026-01-18 22:18:44,506 - INFO - Running validation checks
+2026-01-18 22:18:44,514 - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\validation_service_deserts.csv
+2026-01-18 22:18:44,515 - INFO - Generating visualizations
+2026-01-18 22:18:46,223 - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\service_deserts
+2026-01-18 22:18:46,225 - INFO - Saved notes: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_notes.md
+2026-01-18 22:18:46,225 - INFO - 
+============================================================
+2026-01-18 22:18:46,225 - INFO - SUMMARY
+2026-01-18 22:18:46,226 - INFO - ============================================================
+2026-01-18 22:18:46,226 - INFO - Total pincodes analyzed: 19,879
+2026-01-18 22:18:46,226 - INFO - Service deserts identified: 1,734
+2026-01-18 22:18:46,227 - INFO - Affected population: 2,806,976,769
+2026-01-18 22:18:46,227 - INFO - Top district: Pune (25 deserts)
+2026-01-18 22:18:46,228 - INFO - 
+Service deserts domain analysis complete
+2026-01-18 22:18:58,664 - INFO - ********************************************************************************
+2026-01-18 22:18:58,664 - INFO - DOMAIN ANALYSIS PIPELINE
+2026-01-18 22:18:58,664 - INFO - ********************************************************************************
+2026-01-18 22:18:58,664 - INFO - Start time: 2026-01-18 22:18:58
+2026-01-18 22:18:58,664 - INFO - Base directory: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data
+2026-01-18 22:18:58,664 - INFO - Number of scripts: 6
+2026-01-18 22:18:58,666 - INFO - 
+2026-01-18 22:18:58,666 - INFO - 
+Step 1/6: 09_service_deserts.py
+2026-01-18 22:18:58,666 - INFO - ================================================================================
+2026-01-18 22:18:58,666 - INFO - RUNNING: 09_service_deserts.py
+2026-01-18 22:18:58,666 - INFO - ================================================================================
+2026-01-18 22:19:00,013 - INFO - ============================================================
+2026-01-18 22:19:00,013 - INFO - SERVICE DESERTS DOMAIN ANALYSIS
+2026-01-18 22:19:00,013 - INFO - ============================================================
+2026-01-18 22:19:00,013 - INFO - Using LOCKED definitions from main notebook
+2026-01-18 22:19:00,013 - INFO - Threshold: 50% district baseline (no alternatives)
+2026-01-18 22:19:00,014 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:19:01,816 - INFO - Loaded 238,548 rows
+2026-01-18 22:19:01,816 - INFO - Aggregating to pincode level
+2026-01-18 22:19:01,896 - INFO - Computing district baselines
+2026-01-18 22:19:01,918 - INFO - Applying LOCKED desert definition (50% threshold)
+2026-01-18 22:19:01,923 - INFO - Service deserts identified: 1,734
+2026-01-18 22:19:02,148 - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_metrics.csv
+2026-01-18 22:19:02,148 - INFO - Computing district summary
+2026-01-18 22:19:02,942 - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_summary.csv
+2026-01-18 22:19:02,942 - INFO - Running validation checks
+2026-01-18 22:19:02,950 - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\validation_service_deserts.csv
+2026-01-18 22:19:02,951 - INFO - Generating visualizations
+2026-01-18 22:19:04,791 - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\service_deserts
+2026-01-18 22:19:04,791 - INFO - Saved notes: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_notes.md
+2026-01-18 22:19:04,792 - INFO - 
+============================================================
+2026-01-18 22:19:04,792 - INFO - SUMMARY
+2026-01-18 22:19:04,792 - INFO - ============================================================
+2026-01-18 22:19:04,792 - INFO - Total pincodes analyzed: 19,879
+2026-01-18 22:19:04,792 - INFO - Service deserts identified: 1,734
+2026-01-18 22:19:04,792 - INFO - Affected population: 2,806,976,769
+2026-01-18 22:19:04,794 - INFO - Top district: Pune (25 deserts)
+2026-01-18 22:19:04,794 - INFO - 
+Service deserts domain analysis complete
+2026-01-18 22:19:05,099 - INFO - 2026-01-18 22:19:00,013 - INFO - ============================================================
+2026-01-18 22:19:00,013 - INFO - SERVICE DESERTS DOMAIN ANALYSIS
+2026-01-18 22:19:00,013 - INFO - ============================================================
+2026-01-18 22:19:00,013 - INFO - Using LOCKED definitions from main notebook
+2026-01-18 22:19:00,013 - INFO - Threshold: 50% district baseline (no alternatives)
+2026-01-18 22:19:00,014 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:19:01,816 - INFO - Loaded 238,548 rows
+2026-01-18 22:19:01,816 - INFO - Aggregating to pincode level
+2026-01-18 22:19:01,896 - INFO - Computing district baselines
+2026-01-18 22:19:01,918 - INFO - Applying LOCKED desert definition (50% threshold)
+2026-01-18 22:19:01,923 - INFO - Service deserts identified: 1,734
+2026-01-18 22:19:02,148 - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_metrics.csv
+2026-01-18 22:19:02,148 - INFO - Computing district summary
+2026-01-18 22:19:02,942 - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_summary.csv
+2026-01-18 22:19:02,942 - INFO - Running validation checks
+2026-01-18 22:19:02,950 - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\validation_service_deserts.csv
+2026-01-18 22:19:02,951 - INFO - Generating visualizations
+2026-01-18 22:19:04,791 - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\service_deserts
+2026-01-18 22:19:04,791 - INFO - Saved notes: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_notes.md
+2026-01-18 22:19:04,792 - INFO - 
+============================================================
+2026-01-18 22:19:04,792 - INFO - SUMMARY
+2026-01-18 22:19:04,792 - INFO - ============================================================
+2026-01-18 22:19:04,792 - INFO - Total pincodes analyzed: 19,879
+2026-01-18 22:19:04,792 - INFO - Service deserts identified: 1,734
+2026-01-18 22:19:04,792 - INFO - Affected population: 2,806,976,769
+2026-01-18 22:19:04,794 - INFO - Top district: Pune (25 deserts)
+2026-01-18 22:19:04,794 - INFO - 
+Service deserts domain analysis complete
+
+2026-01-18 22:19:05,100 - INFO - ✓ 09_service_deserts.py completed successfully
+2026-01-18 22:19:05,100 - INFO - 
+Step 2/6: 10_demand_behavior.py
+2026-01-18 22:19:05,100 - INFO - ================================================================================
+2026-01-18 22:19:05,100 - INFO - RUNNING: 10_demand_behavior.py
+2026-01-18 22:19:05,101 - INFO - ================================================================================
+2026-01-18 22:19:09,072 - INFO - ============================================================
+2026-01-18 22:19:09,072 - INFO - DEMAND BEHAVIOR DOMAIN ANALYSIS
+2026-01-18 22:19:09,073 - INFO - ============================================================
+2026-01-18 22:19:09,073 - INFO - Shannon entropy normalized to [0,1]
+2026-01-18 22:19:09,073 - INFO - Described as service-type diversity, NOT quality
+2026-01-18 22:19:09,074 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:19:12,620 - INFO - Loaded 238,548 rows
+2026-01-18 22:19:12,623 - INFO - Aggregating to pincode level
+2026-01-18 22:19:12,799 - INFO - Computing service type ratios
+2026-01-18 22:19:12,825 - INFO - Computing demand diversity scores (normalized Shannon entropy)
+2026-01-18 22:19:22,157 - INFO - Demand diversity range: [0.000, 1.000]
+2026-01-18 22:19:22,410 - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\demand_behavior_metrics.csv
+2026-01-18 22:19:22,410 - INFO - Computing district summary
+2026-01-18 22:19:22,494 - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\demand_behavior_summary.csv
+2026-01-18 22:19:22,494 - INFO - Running validation checks
+2026-01-18 22:19:22,506 - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\validation_demand_behavior.csv
+2026-01-18 22:19:22,506 - INFO - Generating visualizations
+2026-01-18 22:19:24,275 - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\demand_behavior
+2026-01-18 22:19:24,277 - INFO - Saved notes: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\demand_behavior_notes.md
+2026-01-18 22:19:24,277 - INFO - 
+============================================================
+2026-01-18 22:19:24,277 - INFO - SUMMARY
+2026-01-18 22:19:24,277 - INFO - ============================================================
+2026-01-18 22:19:24,277 - INFO - Total pincodes analyzed: 19,879
+2026-01-18 22:19:24,278 - INFO - Most common dominant service: bio (17,940 pincodes)
+2026-01-18 22:19:24,279 - INFO - Average demand diversity: 0.794
+2026-01-18 22:19:24,279 - INFO - 
+Demand behavior domain analysis complete
+2026-01-18 22:19:24,873 - INFO - 2026-01-18 22:19:09,072 - INFO - ============================================================
+2026-01-18 22:19:09,072 - INFO - DEMAND BEHAVIOR DOMAIN ANALYSIS
+2026-01-18 22:19:09,073 - INFO - ============================================================
+2026-01-18 22:19:09,073 - INFO - Shannon entropy normalized to [0,1]
+2026-01-18 22:19:09,073 - INFO - Described as service-type diversity, NOT quality
+2026-01-18 22:19:09,074 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:19:12,620 - INFO - Loaded 238,548 rows
+2026-01-18 22:19:12,623 - INFO - Aggregating to pincode level
+2026-01-18 22:19:12,799 - INFO - Computing service type ratios
+2026-01-18 22:19:12,825 - INFO - Computing demand diversity scores (normalized Shannon entropy)
+2026-01-18 22:19:22,157 - INFO - Demand diversity range: [0.000, 1.000]
+2026-01-18 22:19:22,410 - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\demand_behavior_metrics.csv
+2026-01-18 22:19:22,410 - INFO - Computing district summary
+2026-01-18 22:19:22,494 - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\demand_behavior_summary.csv
+2026-01-18 22:19:22,494 - INFO - Running validation checks
+2026-01-18 22:19:22,506 - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\validation_demand_behavior.csv
+2026-01-18 22:19:22,506 - INFO - Generating visualizations
+2026-01-18 22:19:24,275 - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\demand_behavior
+2026-01-18 22:19:24,277 - INFO - Saved notes: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\demand_behavior_notes.md
+2026-01-18 22:19:24,277 - INFO - 
+============================================================
+2026-01-18 22:19:24,277 - INFO - SUMMARY
+2026-01-18 22:19:24,277 - INFO - ============================================================
+2026-01-18 22:19:24,277 - INFO - Total pincodes analyzed: 19,879
+2026-01-18 22:19:24,278 - INFO - Most common dominant service: bio (17,940 pincodes)
+2026-01-18 22:19:24,279 - INFO - Average demand diversity: 0.794
+2026-01-18 22:19:24,279 - INFO - 
+Demand behavior domain analysis complete
+
+2026-01-18 22:19:24,875 - INFO - ✓ 10_demand_behavior.py completed successfully
+2026-01-18 22:19:24,876 - INFO - 
+Step 3/6: 11_service_quality.py
+2026-01-18 22:19:24,878 - INFO - ================================================================================
+2026-01-18 22:19:24,879 - INFO - RUNNING: 11_service_quality.py
+2026-01-18 22:19:24,880 - INFO - ================================================================================
+2026-01-18 22:19:26,952 - INFO - ============================================================
+2026-01-18 22:19:26,952 - INFO - SERVICE QUALITY DOMAIN ANALYSIS
+2026-01-18 22:19:26,952 - INFO - ============================================================
+2026-01-18 22:19:26,952 - INFO - Using neutral terminology:
+2026-01-18 22:19:26,952 - INFO -   - Activity consistency (not failure)
+2026-01-18 22:19:26,952 - INFO -   - Potential service stress (not poor quality)
+2026-01-18 22:19:26,952 - INFO -   - Signals (not definitive failures)
+2026-01-18 22:19:26,953 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:19:29,127 - INFO - Loaded 238,548 rows
+2026-01-18 22:19:29,127 - INFO - Aggregating to pincode level
+2026-01-18 22:19:29,612 - INFO - 2026-01-18 22:19:26,952 - INFO - ============================================================
+2026-01-18 22:19:26,952 - INFO - SERVICE QUALITY DOMAIN ANALYSIS
+2026-01-18 22:19:26,952 - INFO - ============================================================
+2026-01-18 22:19:26,952 - INFO - Using neutral terminology:
+2026-01-18 22:19:26,952 - INFO -   - Activity consistency (not failure)
+2026-01-18 22:19:26,952 - INFO -   - Potential service stress (not poor quality)
+2026-01-18 22:19:26,952 - INFO -   - Signals (not definitive failures)
+2026-01-18 22:19:26,953 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:19:29,127 - INFO - Loaded 238,548 rows
+2026-01-18 22:19:29,127 - INFO - Aggregating to pincode level
+
+2026-01-18 22:19:29,614 - ERROR - Script 11_service_quality.py failed with return code 1
+2026-01-18 22:19:29,614 - ERROR - STDERR:
+Traceback (most recent call last):
+  File "C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\antigravity_scripts\11_service_quality.py", line 297, in <module>
+    main()
+  File "C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\antigravity_scripts\11_service_quality.py", line 68, in main
+    pincode_agg = df.groupby('pincode', as_index=False).agg(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lalit Hire\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\groupby\generic.py", line 1432, in aggregate
+    result = op.agg()
+             ^^^^^^^^
+  File "C:\Users\Lalit Hire\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\apply.py", line 190, in agg
+    return self.agg_dict_like()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lalit Hire\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\apply.py", line 423, in agg_dict_like
+    return self.agg_or_apply_dict_like(op_name="agg")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lalit Hire\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\apply.py", line 1608, in agg_or_apply_dict_like
+    result_index, result_data = self.compute_dict_like(
+                                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lalit Hire\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\apply.py", line 462, in compute_dict_like
+    func = self.normalize_dictlike_arg(op_name, selected_obj, func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lalit Hire\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\apply.py", line 663, in normalize_dictlike_arg
+    raise KeyError(f"Column(s) {list(cols)} do not exist")
+KeyError: "Column(s) ['activity_per_100k'] do not exist"
+
+2026-01-18 22:19:29,614 - ERROR - 
+2026-01-18 22:19:29,614 - ERROR - ********************************************************************************
+2026-01-18 22:19:29,616 - ERROR - PIPELINE FAILED
+2026-01-18 22:19:29,616 - ERROR - ********************************************************************************
+2026-01-18 22:19:29,616 - ERROR - Failed at script: 11_service_quality.py
+2026-01-18 22:19:29,617 - ERROR - Check C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\antigravity\antigravity.log for details
+2026-01-18 22:19:46,071 - INFO - ============================================================
+2026-01-18 22:19:46,072 - INFO - DEMAND BEHAVIOR DOMAIN ANALYSIS
+2026-01-18 22:19:46,072 - INFO - ============================================================
+2026-01-18 22:19:46,072 - INFO - Shannon entropy normalized to [0,1]
+2026-01-18 22:19:46,072 - INFO - Described as service-type diversity, NOT quality
+2026-01-18 22:19:46,073 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:19:48,668 - INFO - Loaded 238,548 rows
+2026-01-18 22:19:48,670 - INFO - Aggregating to pincode level
+2026-01-18 22:19:48,802 - INFO - Computing service type ratios
+2026-01-18 22:19:48,824 - INFO - Computing demand diversity scores (normalized Shannon entropy)
+2026-01-18 22:19:56,651 - INFO - Demand diversity range: [0.000, 1.000]
+2026-01-18 22:19:56,914 - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\demand_behavior_metrics.csv
+2026-01-18 22:19:56,914 - INFO - Computing district summary
+2026-01-18 22:19:56,978 - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\demand_behavior_summary.csv
+2026-01-18 22:19:56,978 - INFO - Running validation checks
+2026-01-18 22:19:56,991 - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\validation_demand_behavior.csv
+2026-01-18 22:19:56,991 - INFO - Generating visualizations
+2026-01-18 22:19:58,322 - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\demand_behavior
+2026-01-18 22:19:58,323 - INFO - Saved notes: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\demand_behavior_notes.md
+2026-01-18 22:19:58,324 - INFO - 
+============================================================
+2026-01-18 22:19:58,324 - INFO - SUMMARY
+2026-01-18 22:19:58,324 - INFO - ============================================================
+2026-01-18 22:19:58,324 - INFO - Total pincodes analyzed: 19,879
+2026-01-18 22:19:58,325 - INFO - Most common dominant service: bio (17,940 pincodes)
+2026-01-18 22:19:58,325 - INFO - Average demand diversity: 0.794
+2026-01-18 22:19:58,325 - INFO - 
+Demand behavior domain analysis complete
+2026-01-18 22:20:23,254 - INFO - ============================================================
+2026-01-18 22:20:23,255 - INFO - SERVICE DESERTS DOMAIN ANALYSIS
+2026-01-18 22:20:23,256 - INFO - ============================================================
+2026-01-18 22:20:23,256 - INFO - Using LOCKED definitions from main notebook
+2026-01-18 22:20:23,256 - INFO - Threshold: 50% district baseline (no alternatives)
+2026-01-18 22:20:23,258 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:20:26,031 - INFO - Loaded 238,548 rows
+2026-01-18 22:20:26,033 - INFO - Aggregating to pincode level
+2026-01-18 22:20:26,154 - INFO - Computing district baselines
+2026-01-18 22:20:26,196 - INFO - Applying LOCKED desert definition (50% threshold)
+2026-01-18 22:20:26,210 - INFO - Service deserts identified: 1,734
+2026-01-18 22:20:26,518 - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_metrics.csv
+2026-01-18 22:20:26,518 - INFO - Computing district summary
+2026-01-18 22:20:27,708 - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_summary.csv
+2026-01-18 22:20:27,708 - INFO - Running validation checks
+2026-01-18 22:20:27,720 - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\validation_service_deserts.csv
+2026-01-18 22:20:27,720 - INFO - Generating visualizations
+2026-01-18 22:20:29,897 - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\service_deserts
+2026-01-18 22:20:29,900 - INFO - Saved notes: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_notes.md
+2026-01-18 22:20:29,900 - INFO - 
+============================================================
+2026-01-18 22:20:29,901 - INFO - SUMMARY
+2026-01-18 22:20:29,901 - INFO - ============================================================
+2026-01-18 22:20:29,901 - INFO - Total pincodes analyzed: 19,879
+2026-01-18 22:20:29,902 - INFO - Service deserts identified: 1,734
+2026-01-18 22:20:29,904 - INFO - Affected population: 2,806,976,769
+2026-01-18 22:20:29,905 - INFO - Top district: Pune (25 deserts)
+2026-01-18 22:20:29,906 - INFO - 
+Service deserts domain analysis complete
+2026-01-18 22:20:33,675 - INFO - ============================================================
+2026-01-18 22:20:33,676 - INFO - DEMAND BEHAVIOR DOMAIN ANALYSIS
+2026-01-18 22:20:33,676 - INFO - ============================================================
+2026-01-18 22:20:33,676 - INFO - Shannon entropy normalized to [0,1]
+2026-01-18 22:20:33,676 - INFO - Described as service-type diversity, NOT quality
+2026-01-18 22:20:33,678 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:20:36,333 - INFO - Loaded 238,548 rows
+2026-01-18 22:20:36,333 - INFO - Aggregating to pincode level
+2026-01-18 22:20:36,482 - INFO - Computing service type ratios
+2026-01-18 22:20:36,511 - INFO - Computing demand diversity scores (normalized Shannon entropy)
+2026-01-18 22:20:42,684 - INFO - Demand diversity range: [0.000, 1.000]
+2026-01-18 22:20:42,894 - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\demand_behavior_metrics.csv
+2026-01-18 22:20:42,894 - INFO - Computing district summary
+2026-01-18 22:20:42,956 - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\demand_behavior_summary.csv
+2026-01-18 22:20:42,957 - INFO - Running validation checks
+2026-01-18 22:20:42,966 - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\validation_demand_behavior.csv
+2026-01-18 22:20:42,966 - INFO - Generating visualizations
+2026-01-18 22:20:44,054 - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\demand_behavior
+2026-01-18 22:20:44,056 - INFO - Saved notes: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\demand_behavior_notes.md
+2026-01-18 22:20:44,057 - INFO - 
+============================================================
+2026-01-18 22:20:44,057 - INFO - SUMMARY
+2026-01-18 22:20:44,057 - INFO - ============================================================
+2026-01-18 22:20:44,057 - INFO - Total pincodes analyzed: 19,879
+2026-01-18 22:20:44,057 - INFO - Most common dominant service: bio (17,940 pincodes)
+2026-01-18 22:20:44,057 - INFO - Average demand diversity: 0.794
+2026-01-18 22:20:44,057 - INFO - 
+Demand behavior domain analysis complete
+2026-01-18 22:20:46,478 - INFO - ============================================================
+2026-01-18 22:20:46,478 - INFO - SERVICE QUALITY DOMAIN ANALYSIS
+2026-01-18 22:20:46,480 - INFO - ============================================================
+2026-01-18 22:20:46,480 - INFO - Using neutral terminology:
+2026-01-18 22:20:46,480 - INFO -   - Activity consistency (not failure)
+2026-01-18 22:20:46,480 - INFO -   - Potential service stress (not poor quality)
+2026-01-18 22:20:46,480 - INFO -   - Signals (not definitive failures)
+2026-01-18 22:20:46,481 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:20:48,518 - INFO - Loaded 238,548 rows
+2026-01-18 22:20:48,519 - INFO - Aggregating to pincode level
+2026-01-18 22:20:50,544 - INFO - ============================================================
+2026-01-18 22:20:50,545 - INFO - TEMPORAL DOMAIN ANALYSIS
+2026-01-18 22:20:50,545 - INFO - ============================================================
+2026-01-18 22:20:50,545 - INFO - Minimum coverage requirement: 6 active months
+2026-01-18 22:20:50,546 - INFO - Insufficient data flagged explicitly (no forced estimates)
+2026-01-18 22:20:50,547 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:20:52,614 - INFO - Loaded 238,548 rows
+2026-01-18 22:20:52,614 - INFO - Temporal columns found - computing trends
+2026-01-18 22:20:54,049 - INFO - Pincodes with ≥6 months: 0 (0.0%)
+2026-01-18 22:20:54,166 - INFO - Saved metrics
+2026-01-18 22:20:54,355 - INFO - Generating visualizations
+2026-01-18 22:20:55,377 - INFO - 
+Temporal domain complete. 19,879 pincodes flagged as insufficient data.
+2026-01-18 22:20:57,480 - INFO - ============================================================
+2026-01-18 22:20:57,480 - INFO - POLICY SIMULATOR (PROTOTYPE)
+2026-01-18 22:20:57,480 - INFO - ============================================================
+2026-01-18 22:20:57,480 - INFO - ILLUSTRATIVE scenarios only - NO guaranteed real-world impact
+2026-01-18 22:20:57,480 - INFO - Simple prioritization logic for demonstration purposes
+2026-01-18 22:20:57,480 - INFO - Loading domain metrics
+2026-01-18 22:20:57,528 - ERROR - Domain metrics not found: [Errno 2] No such file or directory: 'C:\\Users\\Lalit Hire\\UIDAI Data Hackathon 2026\\data\\outputs\\domains\\service_quality\\service_quality_metrics.csv'
+2026-01-18 22:20:57,528 - ERROR - Run domain scripts first (09-13)
+2026-01-18 22:24:33,281 - INFO - ============================================================
+2026-01-18 22:24:33,282 - INFO - SERVICE QUALITY DOMAIN ANALYSIS
+2026-01-18 22:24:33,282 - INFO - ============================================================
+2026-01-18 22:24:33,282 - INFO - Using neutral terminology:
+2026-01-18 22:24:33,282 - INFO -   - Activity consistency (not failure)
+2026-01-18 22:24:33,282 - INFO -   - Potential service stress (not poor quality)
+2026-01-18 22:24:33,282 - INFO -   - Signals (not definitive failures)
+2026-01-18 22:24:33,284 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:24:35,080 - INFO - Loaded 238,548 rows
+2026-01-18 22:24:35,080 - INFO - Aggregating to pincode level
+2026-01-18 22:28:22,408 - INFO - ********************************************************************************
+2026-01-18 22:28:22,408 - INFO - DOMAIN ANALYSIS PIPELINE
+2026-01-18 22:28:22,409 - INFO - ********************************************************************************
+2026-01-18 22:28:22,409 - INFO - Start time: 2026-01-18 22:28:22
+2026-01-18 22:28:22,409 - INFO - Base directory: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data
+2026-01-18 22:28:22,409 - INFO - Number of scripts: 6
+2026-01-18 22:28:22,409 - INFO - 
+2026-01-18 22:28:22,409 - INFO - 
+Step 1/6: 09_service_deserts.py
+2026-01-18 22:28:22,410 - INFO - ================================================================================
+2026-01-18 22:28:22,410 - INFO - RUNNING: 09_service_deserts.py
+2026-01-18 22:28:22,410 - INFO - ================================================================================
+2026-01-18 22:28:23,954 - INFO - ============================================================
+2026-01-18 22:28:23,954 - INFO - SERVICE DESERTS DOMAIN ANALYSIS
+2026-01-18 22:28:23,954 - INFO - ============================================================
+2026-01-18 22:28:23,954 - INFO - Using LOCKED definitions from main notebook
+2026-01-18 22:28:23,954 - INFO - Threshold: 50% district baseline (no alternatives)
+2026-01-18 22:28:23,954 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:28:25,666 - INFO - Loaded 238,548 rows
+2026-01-18 22:28:25,666 - INFO - Aggregating to pincode level
+2026-01-18 22:28:25,749 - INFO - Computing district baselines
+2026-01-18 22:28:25,773 - INFO - Applying LOCKED desert definition (50% threshold)
+2026-01-18 22:28:25,781 - INFO - Service deserts identified: 1,734
+2026-01-18 22:28:25,930 - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_metrics.csv
+2026-01-18 22:28:25,930 - INFO - Computing district summary
+2026-01-18 22:28:26,376 - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_summary.csv
+2026-01-18 22:28:26,376 - INFO - Running validation checks
+2026-01-18 22:28:26,384 - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\validation_service_deserts.csv
+2026-01-18 22:28:26,384 - INFO - Generating visualizations
+2026-01-18 22:28:27,774 - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\service_deserts
+2026-01-18 22:28:27,776 - INFO - Saved notes: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_notes.md
+2026-01-18 22:28:27,776 - INFO - 
+============================================================
+2026-01-18 22:28:27,776 - INFO - SUMMARY
+2026-01-18 22:28:27,776 - INFO - ============================================================
+2026-01-18 22:28:27,778 - INFO - Total pincodes analyzed: 19,879
+2026-01-18 22:28:27,778 - INFO - Service deserts identified: 1,734
+2026-01-18 22:28:27,778 - INFO - Affected population: 2,806,976,769
+2026-01-18 22:28:27,778 - INFO - Top district: Pune (25 deserts)
+2026-01-18 22:28:27,778 - INFO - 
+Service deserts domain analysis complete
+2026-01-18 22:28:28,028 - INFO - 2026-01-18 22:28:23,954 - INFO - ============================================================
+2026-01-18 22:28:23,954 - INFO - SERVICE DESERTS DOMAIN ANALYSIS
+2026-01-18 22:28:23,954 - INFO - ============================================================
+2026-01-18 22:28:23,954 - INFO - Using LOCKED definitions from main notebook
+2026-01-18 22:28:23,954 - INFO - Threshold: 50% district baseline (no alternatives)
+2026-01-18 22:28:23,954 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:28:25,666 - INFO - Loaded 238,548 rows
+2026-01-18 22:28:25,666 - INFO - Aggregating to pincode level
+2026-01-18 22:28:25,749 - INFO - Computing district baselines
+2026-01-18 22:28:25,773 - INFO - Applying LOCKED desert definition (50% threshold)
+2026-01-18 22:28:25,781 - INFO - Service deserts identified: 1,734
+2026-01-18 22:28:25,930 - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_metrics.csv
+2026-01-18 22:28:25,930 - INFO - Computing district summary
+2026-01-18 22:28:26,376 - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_summary.csv
+2026-01-18 22:28:26,376 - INFO - Running validation checks
+2026-01-18 22:28:26,384 - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\validation_service_deserts.csv
+2026-01-18 22:28:26,384 - INFO - Generating visualizations
+2026-01-18 22:28:27,774 - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\service_deserts
+2026-01-18 22:28:27,776 - INFO - Saved notes: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_notes.md
+2026-01-18 22:28:27,776 - INFO - 
+============================================================
+2026-01-18 22:28:27,776 - INFO - SUMMARY
+2026-01-18 22:28:27,776 - INFO - ============================================================
+2026-01-18 22:28:27,778 - INFO - Total pincodes analyzed: 19,879
+2026-01-18 22:28:27,778 - INFO - Service deserts identified: 1,734
+2026-01-18 22:28:27,778 - INFO - Affected population: 2,806,976,769
+2026-01-18 22:28:27,778 - INFO - Top district: Pune (25 deserts)
+2026-01-18 22:28:27,778 - INFO - 
+Service deserts domain analysis complete
+
+2026-01-18 22:28:28,029 - INFO - ✓ 09_service_deserts.py completed successfully
+2026-01-18 22:28:28,030 - INFO - 
+Step 2/6: 10_demand_behavior.py
+2026-01-18 22:28:28,030 - INFO - ================================================================================
+2026-01-18 22:28:28,030 - INFO - RUNNING: 10_demand_behavior.py
+2026-01-18 22:28:28,030 - INFO - ================================================================================
+2026-01-18 22:28:31,534 - INFO - ============================================================
+2026-01-18 22:28:31,534 - INFO - DEMAND BEHAVIOR DOMAIN ANALYSIS
+2026-01-18 22:28:31,534 - INFO - ============================================================
+2026-01-18 22:28:31,534 - INFO - Shannon entropy normalized to [0,1]
+2026-01-18 22:28:31,534 - INFO - Described as service-type diversity, NOT quality
+2026-01-18 22:28:31,534 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:28:33,592 - INFO - Loaded 238,548 rows
+2026-01-18 22:28:33,592 - INFO - Aggregating to pincode level
+2026-01-18 22:28:33,677 - INFO - Computing service type ratios
+2026-01-18 22:28:33,693 - INFO - Computing demand diversity scores (normalized Shannon entropy)
+2026-01-18 22:28:38,324 - INFO - Demand diversity range: [0.000, 1.000]
+2026-01-18 22:28:38,501 - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\demand_behavior_metrics.csv
+2026-01-18 22:28:38,501 - INFO - Computing district summary
+2026-01-18 22:28:38,547 - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\demand_behavior_summary.csv
+2026-01-18 22:28:38,547 - INFO - Running validation checks
+2026-01-18 22:28:38,554 - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\validation_demand_behavior.csv
+2026-01-18 22:28:38,554 - INFO - Generating visualizations
+2026-01-18 22:28:39,457 - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\demand_behavior
+2026-01-18 22:28:39,457 - INFO - Saved notes: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\demand_behavior_notes.md
+2026-01-18 22:28:39,457 - INFO - 
+============================================================
+2026-01-18 22:28:39,457 - INFO - SUMMARY
+2026-01-18 22:28:39,460 - INFO - ============================================================
+2026-01-18 22:28:39,460 - INFO - Total pincodes analyzed: 19,879
+2026-01-18 22:28:39,460 - INFO - Most common dominant service: bio (17,940 pincodes)
+2026-01-18 22:28:39,460 - INFO - Average demand diversity: 0.794
+2026-01-18 22:28:39,460 - INFO - 
+Demand behavior domain analysis complete
+2026-01-18 22:28:39,808 - INFO - 2026-01-18 22:28:31,534 - INFO - ============================================================
+2026-01-18 22:28:31,534 - INFO - DEMAND BEHAVIOR DOMAIN ANALYSIS
+2026-01-18 22:28:31,534 - INFO - ============================================================
+2026-01-18 22:28:31,534 - INFO - Shannon entropy normalized to [0,1]
+2026-01-18 22:28:31,534 - INFO - Described as service-type diversity, NOT quality
+2026-01-18 22:28:31,534 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:28:33,592 - INFO - Loaded 238,548 rows
+2026-01-18 22:28:33,592 - INFO - Aggregating to pincode level
+2026-01-18 22:28:33,677 - INFO - Computing service type ratios
+2026-01-18 22:28:33,693 - INFO - Computing demand diversity scores (normalized Shannon entropy)
+2026-01-18 22:28:38,324 - INFO - Demand diversity range: [0.000, 1.000]
+2026-01-18 22:28:38,501 - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\demand_behavior_metrics.csv
+2026-01-18 22:28:38,501 - INFO - Computing district summary
+2026-01-18 22:28:38,547 - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\demand_behavior_summary.csv
+2026-01-18 22:28:38,547 - INFO - Running validation checks
+2026-01-18 22:28:38,554 - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\validation_demand_behavior.csv
+2026-01-18 22:28:38,554 - INFO - Generating visualizations
+2026-01-18 22:28:39,457 - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\demand_behavior
+2026-01-18 22:28:39,457 - INFO - Saved notes: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\demand_behavior_notes.md
+2026-01-18 22:28:39,457 - INFO - 
+============================================================
+2026-01-18 22:28:39,457 - INFO - SUMMARY
+2026-01-18 22:28:39,460 - INFO - ============================================================
+2026-01-18 22:28:39,460 - INFO - Total pincodes analyzed: 19,879
+2026-01-18 22:28:39,460 - INFO - Most common dominant service: bio (17,940 pincodes)
+2026-01-18 22:28:39,460 - INFO - Average demand diversity: 0.794
+2026-01-18 22:28:39,460 - INFO - 
+Demand behavior domain analysis complete
+
+2026-01-18 22:28:39,808 - INFO - ✓ 10_demand_behavior.py completed successfully
+2026-01-18 22:28:39,808 - INFO - 
+Step 3/6: 11_service_quality.py
+2026-01-18 22:28:39,809 - INFO - ================================================================================
+2026-01-18 22:28:39,809 - INFO - RUNNING: 11_service_quality.py
+2026-01-18 22:28:39,809 - INFO - ================================================================================
+2026-01-18 22:28:41,349 - INFO - ============================================================
+2026-01-18 22:28:41,349 - INFO - SERVICE QUALITY DOMAIN ANALYSIS
+2026-01-18 22:28:41,349 - INFO - ============================================================
+2026-01-18 22:28:41,349 - INFO - Using neutral terminology:
+2026-01-18 22:28:41,349 - INFO -   - Activity consistency (not failure)
+2026-01-18 22:28:41,349 - INFO -   - Potential service stress (not poor quality)
+2026-01-18 22:28:41,349 - INFO -   - Signals (not definitive failures)
+2026-01-18 22:28:41,351 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:28:43,124 - INFO - Loaded 238,548 rows
+2026-01-18 22:28:43,124 - INFO - Aggregating to pincode level
+2026-01-18 22:28:43,187 - INFO - Computing activity consistency metrics
+2026-01-18 22:28:43,213 - INFO - Consistency tier distribution:
+consistency_tier
+high_consistency        15599
+moderate_consistency     2435
+inconsistent_pattern      768
+Name: count, dtype: int64
+2026-01-18 22:28:43,350 - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_quality\service_quality_metrics.csv
+2026-01-18 22:28:43,350 - INFO - Computing district summary
+2026-01-18 22:28:43,454 - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_quality\service_quality_summary.csv
+2026-01-18 22:28:43,454 - INFO - Running validation checks
+2026-01-18 22:28:43,461 - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_quality\validation_service_quality.csv
+2026-01-18 22:28:43,461 - INFO - Generating visualizations
+2026-01-18 22:28:44,515 - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\service_quality
+2026-01-18 22:28:44,516 - INFO - Saved notes: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_quality\service_quality_notes.md
+2026-01-18 22:28:44,516 - INFO - 
+============================================================
+2026-01-18 22:28:44,516 - INFO - SUMMARY
+2026-01-18 22:28:44,516 - INFO - ============================================================
+2026-01-18 22:28:44,516 - INFO - Total pincodes analyzed: 19,844
+2026-01-18 22:28:44,517 - INFO - High consistency: 15,599
+2026-01-18 22:28:44,518 - INFO - Potential stress signals: 384
+2026-01-18 22:28:44,518 - INFO - Average consistency score: 0.798
+2026-01-18 22:28:44,518 - INFO - 
+Service quality domain analysis complete
+2026-01-18 22:28:44,772 - INFO - 2026-01-18 22:28:41,349 - INFO - ============================================================
+2026-01-18 22:28:41,349 - INFO - SERVICE QUALITY DOMAIN ANALYSIS
+2026-01-18 22:28:41,349 - INFO - ============================================================
+2026-01-18 22:28:41,349 - INFO - Using neutral terminology:
+2026-01-18 22:28:41,349 - INFO -   - Activity consistency (not failure)
+2026-01-18 22:28:41,349 - INFO -   - Potential service stress (not poor quality)
+2026-01-18 22:28:41,349 - INFO -   - Signals (not definitive failures)
+2026-01-18 22:28:41,351 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:28:43,124 - INFO - Loaded 238,548 rows
+2026-01-18 22:28:43,124 - INFO - Aggregating to pincode level
+2026-01-18 22:28:43,187 - INFO - Computing activity consistency metrics
+2026-01-18 22:28:43,213 - INFO - Consistency tier distribution:
+consistency_tier
+high_consistency        15599
+moderate_consistency     2435
+inconsistent_pattern      768
+Name: count, dtype: int64
+2026-01-18 22:28:43,350 - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_quality\service_quality_metrics.csv
+2026-01-18 22:28:43,350 - INFO - Computing district summary
+2026-01-18 22:28:43,454 - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_quality\service_quality_summary.csv
+2026-01-18 22:28:43,454 - INFO - Running validation checks
+2026-01-18 22:28:43,461 - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_quality\validation_service_quality.csv
+2026-01-18 22:28:43,461 - INFO - Generating visualizations
+2026-01-18 22:28:44,515 - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\service_quality
+2026-01-18 22:28:44,516 - INFO - Saved notes: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_quality\service_quality_notes.md
+2026-01-18 22:28:44,516 - INFO - 
+============================================================
+2026-01-18 22:28:44,516 - INFO - SUMMARY
+2026-01-18 22:28:44,516 - INFO - ============================================================
+2026-01-18 22:28:44,516 - INFO - Total pincodes analyzed: 19,844
+2026-01-18 22:28:44,517 - INFO - High consistency: 15,599
+2026-01-18 22:28:44,518 - INFO - Potential stress signals: 384
+2026-01-18 22:28:44,518 - INFO - Average consistency score: 0.798
+2026-01-18 22:28:44,518 - INFO - 
+Service quality domain analysis complete
+
+2026-01-18 22:28:44,773 - INFO - ✓ 11_service_quality.py completed successfully
+2026-01-18 22:28:44,774 - INFO - 
+Step 4/6: 12_capacity_mismatch.py
+2026-01-18 22:28:44,774 - INFO - ================================================================================
+2026-01-18 22:28:44,774 - INFO - RUNNING: 12_capacity_mismatch.py
+2026-01-18 22:28:44,774 - INFO - ================================================================================
+2026-01-18 22:28:44,856 - ERROR - Script 12_capacity_mismatch.py failed with return code 1
+2026-01-18 22:28:44,856 - ERROR - STDERR:
+  File "C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\antigravity_scripts\12_capacity_mismatch.py", line 92
+    summary = pincode_agg.groupby('district', as_index=False).agg(
+                                                                  ^
+IndentationError: unindent does not match any outer indentation level
+
+2026-01-18 22:28:44,857 - ERROR - 
+2026-01-18 22:28:44,857 - ERROR - ********************************************************************************
+2026-01-18 22:28:44,857 - ERROR - PIPELINE FAILED
+2026-01-18 22:28:44,857 - ERROR - ********************************************************************************
+2026-01-18 22:28:44,857 - ERROR - Failed at script: 12_capacity_mismatch.py
+2026-01-18 22:28:44,857 - ERROR - Check C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\antigravity\antigravity.log for details
+2026-01-18 22:29:43,401 - INFO - ============================================================
+2026-01-18 22:29:43,401 - INFO - SERVICE QUALITY DOMAIN ANALYSIS
+2026-01-18 22:29:43,401 - INFO - ============================================================
+2026-01-18 22:29:43,402 - INFO - Using neutral terminology:
+2026-01-18 22:29:43,402 - INFO -   - Activity consistency (not failure)
+2026-01-18 22:29:43,402 - INFO -   - Potential service stress (not poor quality)
+2026-01-18 22:29:43,402 - INFO -   - Signals (not definitive failures)
+2026-01-18 22:29:43,403 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:29:45,139 - INFO - Loaded 238,548 rows
+2026-01-18 22:29:45,140 - INFO - Aggregating to pincode level
+2026-01-18 22:29:45,225 - INFO - Computing activity consistency metrics
+2026-01-18 22:29:45,252 - INFO - Consistency tier distribution:
+consistency_tier
+high_consistency        15599
+moderate_consistency     2435
+inconsistent_pattern      768
+Name: count, dtype: int64
+2026-01-18 22:29:45,380 - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_quality\service_quality_metrics.csv
+2026-01-18 22:29:45,380 - INFO - Computing district summary
+2026-01-18 22:29:45,465 - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_quality\service_quality_summary.csv
+2026-01-18 22:29:45,466 - INFO - Running validation checks
+2026-01-18 22:29:45,472 - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_quality\validation_service_quality.csv
+2026-01-18 22:29:45,472 - INFO - Generating visualizations
+2026-01-18 22:29:46,478 - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\service_quality
+2026-01-18 22:29:46,480 - INFO - Saved notes: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_quality\service_quality_notes.md
+2026-01-18 22:29:46,480 - INFO - 
+============================================================
+2026-01-18 22:29:46,480 - INFO - SUMMARY
+2026-01-18 22:29:46,480 - INFO - ============================================================
+2026-01-18 22:29:46,480 - INFO - Total pincodes analyzed: 19,844
+2026-01-18 22:29:46,480 - INFO - High consistency: 15,599
+2026-01-18 22:29:46,482 - INFO - Potential stress signals: 384
+2026-01-18 22:29:46,482 - INFO - Average consistency score: 0.798
+2026-01-18 22:29:46,482 - INFO - 
+Service quality domain analysis complete
+2026-01-18 22:30:28,602 - INFO - ********************************************************************************
+2026-01-18 22:30:28,602 - INFO - DOMAIN ANALYSIS PIPELINE
+2026-01-18 22:30:28,604 - INFO - ********************************************************************************
+2026-01-18 22:30:28,604 - INFO - Start time: 2026-01-18 22:30:28
+2026-01-18 22:30:28,604 - INFO - Base directory: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data
+2026-01-18 22:30:28,604 - INFO - Number of scripts: 6
+2026-01-18 22:30:28,604 - INFO - 
+2026-01-18 22:30:28,604 - INFO - 
+Step 1/6: 09_service_deserts.py
+2026-01-18 22:30:28,604 - INFO - ================================================================================
+2026-01-18 22:30:28,604 - INFO - RUNNING: 09_service_deserts.py
+2026-01-18 22:30:28,604 - INFO - ================================================================================
+2026-01-18 22:30:29,953 - INFO - ============================================================
+2026-01-18 22:30:29,953 - INFO - SERVICE DESERTS DOMAIN ANALYSIS
+2026-01-18 22:30:29,953 - INFO - ============================================================
+2026-01-18 22:30:29,953 - INFO - Using LOCKED definitions from main notebook
+2026-01-18 22:30:29,953 - INFO - Threshold: 50% district baseline (no alternatives)
+2026-01-18 22:30:29,954 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:30:31,725 - INFO - Loaded 238,548 rows
+2026-01-18 22:30:31,726 - INFO - Aggregating to pincode level
+2026-01-18 22:30:31,791 - INFO - Computing district baselines
+2026-01-18 22:30:31,810 - INFO - Applying LOCKED desert definition (50% threshold)
+2026-01-18 22:30:31,818 - INFO - Service deserts identified: 1,734
+2026-01-18 22:30:31,985 - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_metrics.csv
+2026-01-18 22:30:31,985 - INFO - Computing district summary
+2026-01-18 22:30:32,467 - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_summary.csv
+2026-01-18 22:30:32,467 - INFO - Running validation checks
+2026-01-18 22:30:32,476 - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\validation_service_deserts.csv
+2026-01-18 22:30:32,476 - INFO - Generating visualizations
+2026-01-18 22:30:33,765 - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\service_deserts
+2026-01-18 22:30:33,766 - INFO - Saved notes: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_notes.md
+2026-01-18 22:30:33,767 - INFO - 
+============================================================
+2026-01-18 22:30:33,767 - INFO - SUMMARY
+2026-01-18 22:30:33,767 - INFO - ============================================================
+2026-01-18 22:30:33,767 - INFO - Total pincodes analyzed: 19,879
+2026-01-18 22:30:33,767 - INFO - Service deserts identified: 1,734
+2026-01-18 22:30:33,767 - INFO - Affected population: 2,806,976,769
+2026-01-18 22:30:33,768 - INFO - Top district: Pune (25 deserts)
+2026-01-18 22:30:33,768 - INFO - 
+Service deserts domain analysis complete
+2026-01-18 22:30:34,001 - INFO - 2026-01-18 22:30:29,953 - INFO - ============================================================
+2026-01-18 22:30:29,953 - INFO - SERVICE DESERTS DOMAIN ANALYSIS
+2026-01-18 22:30:29,953 - INFO - ============================================================
+2026-01-18 22:30:29,953 - INFO - Using LOCKED definitions from main notebook
+2026-01-18 22:30:29,953 - INFO - Threshold: 50% district baseline (no alternatives)
+2026-01-18 22:30:29,954 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:30:31,725 - INFO - Loaded 238,548 rows
+2026-01-18 22:30:31,726 - INFO - Aggregating to pincode level
+2026-01-18 22:30:31,791 - INFO - Computing district baselines
+2026-01-18 22:30:31,810 - INFO - Applying LOCKED desert definition (50% threshold)
+2026-01-18 22:30:31,818 - INFO - Service deserts identified: 1,734
+2026-01-18 22:30:31,985 - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_metrics.csv
+2026-01-18 22:30:31,985 - INFO - Computing district summary
+2026-01-18 22:30:32,467 - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_summary.csv
+2026-01-18 22:30:32,467 - INFO - Running validation checks
+2026-01-18 22:30:32,476 - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\validation_service_deserts.csv
+2026-01-18 22:30:32,476 - INFO - Generating visualizations
+2026-01-18 22:30:33,765 - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\service_deserts
+2026-01-18 22:30:33,766 - INFO - Saved notes: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_notes.md
+2026-01-18 22:30:33,767 - INFO - 
+============================================================
+2026-01-18 22:30:33,767 - INFO - SUMMARY
+2026-01-18 22:30:33,767 - INFO - ============================================================
+2026-01-18 22:30:33,767 - INFO - Total pincodes analyzed: 19,879
+2026-01-18 22:30:33,767 - INFO - Service deserts identified: 1,734
+2026-01-18 22:30:33,767 - INFO - Affected population: 2,806,976,769
+2026-01-18 22:30:33,768 - INFO - Top district: Pune (25 deserts)
+2026-01-18 22:30:33,768 - INFO - 
+Service deserts domain analysis complete
+
+2026-01-18 22:30:34,002 - INFO - ✓ 09_service_deserts.py completed successfully
+2026-01-18 22:30:34,002 - INFO - 
+Step 2/6: 10_demand_behavior.py
+2026-01-18 22:30:34,002 - INFO - ================================================================================
+2026-01-18 22:30:34,002 - INFO - RUNNING: 10_demand_behavior.py
+2026-01-18 22:30:34,002 - INFO - ================================================================================
+2026-01-18 22:30:37,009 - INFO - ============================================================
+2026-01-18 22:30:37,009 - INFO - DEMAND BEHAVIOR DOMAIN ANALYSIS
+2026-01-18 22:30:37,009 - INFO - ============================================================
+2026-01-18 22:30:37,009 - INFO - Shannon entropy normalized to [0,1]
+2026-01-18 22:30:37,009 - INFO - Described as service-type diversity, NOT quality
+2026-01-18 22:30:37,010 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:30:38,734 - INFO - Loaded 238,548 rows
+2026-01-18 22:30:38,734 - INFO - Aggregating to pincode level
+2026-01-18 22:30:38,799 - INFO - Computing service type ratios
+2026-01-18 22:30:38,819 - INFO - Computing demand diversity scores (normalized Shannon entropy)
+2026-01-18 22:30:44,699 - INFO - Demand diversity range: [0.000, 1.000]
+2026-01-18 22:30:44,949 - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\demand_behavior_metrics.csv
+2026-01-18 22:30:44,951 - INFO - Computing district summary
+2026-01-18 22:30:45,001 - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\demand_behavior_summary.csv
+2026-01-18 22:30:45,001 - INFO - Running validation checks
+2026-01-18 22:30:45,010 - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\validation_demand_behavior.csv
+2026-01-18 22:30:45,010 - INFO - Generating visualizations
+2026-01-18 22:30:45,983 - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\demand_behavior
+2026-01-18 22:30:45,985 - INFO - Saved notes: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\demand_behavior_notes.md
+2026-01-18 22:30:45,985 - INFO - 
+============================================================
+2026-01-18 22:30:45,985 - INFO - SUMMARY
+2026-01-18 22:30:45,985 - INFO - ============================================================
+2026-01-18 22:30:45,985 - INFO - Total pincodes analyzed: 19,879
+2026-01-18 22:30:45,985 - INFO - Most common dominant service: bio (17,940 pincodes)
+2026-01-18 22:30:45,986 - INFO - Average demand diversity: 0.794
+2026-01-18 22:30:45,986 - INFO - 
+Demand behavior domain analysis complete
+2026-01-18 22:30:46,362 - INFO - 2026-01-18 22:30:37,009 - INFO - ============================================================
+2026-01-18 22:30:37,009 - INFO - DEMAND BEHAVIOR DOMAIN ANALYSIS
+2026-01-18 22:30:37,009 - INFO - ============================================================
+2026-01-18 22:30:37,009 - INFO - Shannon entropy normalized to [0,1]
+2026-01-18 22:30:37,009 - INFO - Described as service-type diversity, NOT quality
+2026-01-18 22:30:37,010 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:30:38,734 - INFO - Loaded 238,548 rows
+2026-01-18 22:30:38,734 - INFO - Aggregating to pincode level
+2026-01-18 22:30:38,799 - INFO - Computing service type ratios
+2026-01-18 22:30:38,819 - INFO - Computing demand diversity scores (normalized Shannon entropy)
+2026-01-18 22:30:44,699 - INFO - Demand diversity range: [0.000, 1.000]
+2026-01-18 22:30:44,949 - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\demand_behavior_metrics.csv
+2026-01-18 22:30:44,951 - INFO - Computing district summary
+2026-01-18 22:30:45,001 - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\demand_behavior_summary.csv
+2026-01-18 22:30:45,001 - INFO - Running validation checks
+2026-01-18 22:30:45,010 - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\validation_demand_behavior.csv
+2026-01-18 22:30:45,010 - INFO - Generating visualizations
+2026-01-18 22:30:45,983 - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\demand_behavior
+2026-01-18 22:30:45,985 - INFO - Saved notes: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\demand_behavior_notes.md
+2026-01-18 22:30:45,985 - INFO - 
+============================================================
+2026-01-18 22:30:45,985 - INFO - SUMMARY
+2026-01-18 22:30:45,985 - INFO - ============================================================
+2026-01-18 22:30:45,985 - INFO - Total pincodes analyzed: 19,879
+2026-01-18 22:30:45,985 - INFO - Most common dominant service: bio (17,940 pincodes)
+2026-01-18 22:30:45,986 - INFO - Average demand diversity: 0.794
+2026-01-18 22:30:45,986 - INFO - 
+Demand behavior domain analysis complete
+
+2026-01-18 22:30:46,365 - INFO - ✓ 10_demand_behavior.py completed successfully
+2026-01-18 22:30:46,365 - INFO - 
+Step 3/6: 11_service_quality.py
+2026-01-18 22:30:46,365 - INFO - ================================================================================
+2026-01-18 22:30:46,365 - INFO - RUNNING: 11_service_quality.py
+2026-01-18 22:30:46,365 - INFO - ================================================================================
+2026-01-18 22:30:47,904 - INFO - ============================================================
+2026-01-18 22:30:47,904 - INFO - SERVICE QUALITY DOMAIN ANALYSIS
+2026-01-18 22:30:47,904 - INFO - ============================================================
+2026-01-18 22:30:47,904 - INFO - Using neutral terminology:
+2026-01-18 22:30:47,904 - INFO -   - Activity consistency (not failure)
+2026-01-18 22:30:47,904 - INFO -   - Potential service stress (not poor quality)
+2026-01-18 22:30:47,904 - INFO -   - Signals (not definitive failures)
+2026-01-18 22:30:47,905 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:30:49,677 - INFO - Loaded 238,548 rows
+2026-01-18 22:30:49,678 - INFO - Aggregating to pincode level
+2026-01-18 22:30:49,740 - INFO - Computing activity consistency metrics
+2026-01-18 22:30:49,769 - INFO - Consistency tier distribution:
+consistency_tier
+high_consistency        15599
+moderate_consistency     2435
+inconsistent_pattern      768
+Name: count, dtype: int64
+2026-01-18 22:30:49,895 - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_quality\service_quality_metrics.csv
+2026-01-18 22:30:49,895 - INFO - Computing district summary
+2026-01-18 22:30:49,976 - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_quality\service_quality_summary.csv
+2026-01-18 22:30:49,976 - INFO - Running validation checks
+2026-01-18 22:30:49,980 - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_quality\validation_service_quality.csv
+2026-01-18 22:30:49,980 - INFO - Generating visualizations
+2026-01-18 22:30:50,786 - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\service_quality
+2026-01-18 22:30:50,787 - INFO - Saved notes: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_quality\service_quality_notes.md
+2026-01-18 22:30:50,787 - INFO - 
+============================================================
+2026-01-18 22:30:50,788 - INFO - SUMMARY
+2026-01-18 22:30:50,788 - INFO - ============================================================
+2026-01-18 22:30:50,788 - INFO - Total pincodes analyzed: 19,844
+2026-01-18 22:30:50,788 - INFO - High consistency: 15,599
+2026-01-18 22:30:50,788 - INFO - Potential stress signals: 384
+2026-01-18 22:30:50,788 - INFO - Average consistency score: 0.798
+2026-01-18 22:30:50,789 - INFO - 
+Service quality domain analysis complete
+2026-01-18 22:30:51,016 - INFO - 2026-01-18 22:30:47,904 - INFO - ============================================================
+2026-01-18 22:30:47,904 - INFO - SERVICE QUALITY DOMAIN ANALYSIS
+2026-01-18 22:30:47,904 - INFO - ============================================================
+2026-01-18 22:30:47,904 - INFO - Using neutral terminology:
+2026-01-18 22:30:47,904 - INFO -   - Activity consistency (not failure)
+2026-01-18 22:30:47,904 - INFO -   - Potential service stress (not poor quality)
+2026-01-18 22:30:47,904 - INFO -   - Signals (not definitive failures)
+2026-01-18 22:30:47,905 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:30:49,677 - INFO - Loaded 238,548 rows
+2026-01-18 22:30:49,678 - INFO - Aggregating to pincode level
+2026-01-18 22:30:49,740 - INFO - Computing activity consistency metrics
+2026-01-18 22:30:49,769 - INFO - Consistency tier distribution:
+consistency_tier
+high_consistency        15599
+moderate_consistency     2435
+inconsistent_pattern      768
+Name: count, dtype: int64
+2026-01-18 22:30:49,895 - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_quality\service_quality_metrics.csv
+2026-01-18 22:30:49,895 - INFO - Computing district summary
+2026-01-18 22:30:49,976 - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_quality\service_quality_summary.csv
+2026-01-18 22:30:49,976 - INFO - Running validation checks
+2026-01-18 22:30:49,980 - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_quality\validation_service_quality.csv
+2026-01-18 22:30:49,980 - INFO - Generating visualizations
+2026-01-18 22:30:50,786 - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\service_quality
+2026-01-18 22:30:50,787 - INFO - Saved notes: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_quality\service_quality_notes.md
+2026-01-18 22:30:50,787 - INFO - 
+============================================================
+2026-01-18 22:30:50,788 - INFO - SUMMARY
+2026-01-18 22:30:50,788 - INFO - ============================================================
+2026-01-18 22:30:50,788 - INFO - Total pincodes analyzed: 19,844
+2026-01-18 22:30:50,788 - INFO - High consistency: 15,599
+2026-01-18 22:30:50,788 - INFO - Potential stress signals: 384
+2026-01-18 22:30:50,788 - INFO - Average consistency score: 0.798
+2026-01-18 22:30:50,789 - INFO - 
+Service quality domain analysis complete
+
+2026-01-18 22:30:51,018 - INFO - ✓ 11_service_quality.py completed successfully
+2026-01-18 22:30:51,018 - INFO - 
+Step 4/6: 12_capacity_mismatch.py
+2026-01-18 22:30:51,018 - INFO - ================================================================================
+2026-01-18 22:30:51,019 - INFO - RUNNING: 12_capacity_mismatch.py
+2026-01-18 22:30:51,019 - INFO - ================================================================================
+2026-01-18 22:30:52,421 - INFO - ============================================================
+2026-01-18 22:30:52,421 - INFO - CAPACITY MISMATCH DOMAIN ANALYSIS
+2026-01-18 22:30:52,421 - INFO - ============================================================
+2026-01-18 22:30:52,422 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:30:54,090 - INFO - Loaded 238,548 rows
+2026-01-18 22:30:54,090 - INFO - Aggregating to pincode level
+2026-01-18 22:30:54,269 - INFO - 2026-01-18 22:30:52,421 - INFO - ============================================================
+2026-01-18 22:30:52,421 - INFO - CAPACITY MISMATCH DOMAIN ANALYSIS
+2026-01-18 22:30:52,421 - INFO - ============================================================
+2026-01-18 22:30:52,422 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:30:54,090 - INFO - Loaded 238,548 rows
+2026-01-18 22:30:54,090 - INFO - Aggregating to pincode level
+
+2026-01-18 22:30:54,271 - ERROR - Script 12_capacity_mismatch.py failed with return code 1
+2026-01-18 22:30:54,271 - ERROR - STDERR:
+Traceback (most recent call last):
+  File "C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\antigravity_scripts\12_capacity_mismatch.py", line 180, in <module>
+    main()
+  File "C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\antigravity_scripts\12_capacity_mismatch.py", line 57, in main
+    pincode_agg = df.groupby('pincode', as_index=False).agg(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lalit Hire\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\groupby\generic.py", line 1432, in aggregate
+    result = op.agg()
+             ^^^^^^^^
+  File "C:\Users\Lalit Hire\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\apply.py", line 190, in agg
+    return self.agg_dict_like()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lalit Hire\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\apply.py", line 423, in agg_dict_like
+    return self.agg_or_apply_dict_like(op_name="agg")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lalit Hire\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\apply.py", line 1608, in agg_or_apply_dict_like
+    result_index, result_data = self.compute_dict_like(
+                                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lalit Hire\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\apply.py", line 462, in compute_dict_like
+    func = self.normalize_dictlike_arg(op_name, selected_obj, func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lalit Hire\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\apply.py", line 663, in normalize_dictlike_arg
+    raise KeyError(f"Column(s) {list(cols)} do not exist")
+KeyError: "Column(s) ['activity_per_100k'] do not exist"
+
+2026-01-18 22:30:54,272 - ERROR - 
+2026-01-18 22:30:54,272 - ERROR - ********************************************************************************
+2026-01-18 22:30:54,272 - ERROR - PIPELINE FAILED
+2026-01-18 22:30:54,272 - ERROR - ********************************************************************************
+2026-01-18 22:30:54,272 - ERROR - Failed at script: 12_capacity_mismatch.py
+2026-01-18 22:30:54,272 - ERROR - Check C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\antigravity\antigravity.log for details
+2026-01-18 22:31:36,121 - INFO - ============================================================
+2026-01-18 22:31:36,121 - INFO - CAPACITY MISMATCH DOMAIN ANALYSIS
+2026-01-18 22:31:36,122 - INFO - ============================================================
+2026-01-18 22:31:36,122 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:31:37,871 - INFO - Loaded 238,548 rows
+2026-01-18 22:31:37,871 - INFO - Aggregating to pincode level
+2026-01-18 22:32:08,080 - INFO - ********************************************************************************
+2026-01-18 22:32:08,080 - INFO - DOMAIN ANALYSIS PIPELINE
+2026-01-18 22:32:08,080 - INFO - ********************************************************************************
+2026-01-18 22:32:08,080 - INFO - Start time: 2026-01-18 22:32:08
+2026-01-18 22:32:08,082 - INFO - Base directory: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data
+2026-01-18 22:32:08,082 - INFO - Number of scripts: 6
+2026-01-18 22:32:08,082 - INFO - 
+2026-01-18 22:32:08,082 - INFO - 
+Step 1/6: 09_service_deserts.py
+2026-01-18 22:32:08,082 - INFO - ================================================================================
+2026-01-18 22:32:08,083 - INFO - RUNNING: 09_service_deserts.py
+2026-01-18 22:32:08,083 - INFO - ================================================================================
+2026-01-18 22:32:09,474 - INFO - ============================================================
+2026-01-18 22:32:09,474 - INFO - SERVICE DESERTS DOMAIN ANALYSIS
+2026-01-18 22:32:09,474 - INFO - ============================================================
+2026-01-18 22:32:09,474 - INFO - Using LOCKED definitions from main notebook
+2026-01-18 22:32:09,474 - INFO - Threshold: 50% district baseline (no alternatives)
+2026-01-18 22:32:09,475 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:32:11,171 - INFO - Loaded 238,548 rows
+2026-01-18 22:32:11,171 - INFO - Aggregating to pincode level
+2026-01-18 22:32:11,234 - INFO - Computing district baselines
+2026-01-18 22:32:11,250 - INFO - Applying LOCKED desert definition (50% threshold)
+2026-01-18 22:32:11,254 - INFO - Service deserts identified: 1,734
+2026-01-18 22:32:11,392 - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_metrics.csv
+2026-01-18 22:32:11,394 - INFO - Computing district summary
+2026-01-18 22:32:11,943 - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_summary.csv
+2026-01-18 22:32:11,944 - INFO - Running validation checks
+2026-01-18 22:32:11,950 - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\validation_service_deserts.csv
+2026-01-18 22:32:11,950 - INFO - Generating visualizations
+2026-01-18 22:32:13,252 - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\service_deserts
+2026-01-18 22:32:13,253 - INFO - Saved notes: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_notes.md
+2026-01-18 22:32:13,253 - INFO - 
+============================================================
+2026-01-18 22:32:13,254 - INFO - SUMMARY
+2026-01-18 22:32:13,254 - INFO - ============================================================
+2026-01-18 22:32:13,254 - INFO - Total pincodes analyzed: 19,879
+2026-01-18 22:32:13,254 - INFO - Service deserts identified: 1,734
+2026-01-18 22:32:13,254 - INFO - Affected population: 2,806,976,769
+2026-01-18 22:32:13,254 - INFO - Top district: Pune (25 deserts)
+2026-01-18 22:32:13,254 - INFO - 
+Service deserts domain analysis complete
+2026-01-18 22:32:13,490 - INFO - 2026-01-18 22:32:09,474 - INFO - ============================================================
+2026-01-18 22:32:09,474 - INFO - SERVICE DESERTS DOMAIN ANALYSIS
+2026-01-18 22:32:09,474 - INFO - ============================================================
+2026-01-18 22:32:09,474 - INFO - Using LOCKED definitions from main notebook
+2026-01-18 22:32:09,474 - INFO - Threshold: 50% district baseline (no alternatives)
+2026-01-18 22:32:09,475 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:32:11,171 - INFO - Loaded 238,548 rows
+2026-01-18 22:32:11,171 - INFO - Aggregating to pincode level
+2026-01-18 22:32:11,234 - INFO - Computing district baselines
+2026-01-18 22:32:11,250 - INFO - Applying LOCKED desert definition (50% threshold)
+2026-01-18 22:32:11,254 - INFO - Service deserts identified: 1,734
+2026-01-18 22:32:11,392 - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_metrics.csv
+2026-01-18 22:32:11,394 - INFO - Computing district summary
+2026-01-18 22:32:11,943 - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_summary.csv
+2026-01-18 22:32:11,944 - INFO - Running validation checks
+2026-01-18 22:32:11,950 - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\validation_service_deserts.csv
+2026-01-18 22:32:11,950 - INFO - Generating visualizations
+2026-01-18 22:32:13,252 - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\service_deserts
+2026-01-18 22:32:13,253 - INFO - Saved notes: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_deserts\service_deserts_notes.md
+2026-01-18 22:32:13,253 - INFO - 
+============================================================
+2026-01-18 22:32:13,254 - INFO - SUMMARY
+2026-01-18 22:32:13,254 - INFO - ============================================================
+2026-01-18 22:32:13,254 - INFO - Total pincodes analyzed: 19,879
+2026-01-18 22:32:13,254 - INFO - Service deserts identified: 1,734
+2026-01-18 22:32:13,254 - INFO - Affected population: 2,806,976,769
+2026-01-18 22:32:13,254 - INFO - Top district: Pune (25 deserts)
+2026-01-18 22:32:13,254 - INFO - 
+Service deserts domain analysis complete
+
+2026-01-18 22:32:13,491 - INFO - ✓ 09_service_deserts.py completed successfully
+2026-01-18 22:32:13,491 - INFO - 
+Step 2/6: 10_demand_behavior.py
+2026-01-18 22:32:13,492 - INFO - ================================================================================
+2026-01-18 22:32:13,492 - INFO - RUNNING: 10_demand_behavior.py
+2026-01-18 22:32:13,492 - INFO - ================================================================================
+2026-01-18 22:32:16,392 - INFO - ============================================================
+2026-01-18 22:32:16,392 - INFO - DEMAND BEHAVIOR DOMAIN ANALYSIS
+2026-01-18 22:32:16,392 - INFO - ============================================================
+2026-01-18 22:32:16,392 - INFO - Shannon entropy normalized to [0,1]
+2026-01-18 22:32:16,392 - INFO - Described as service-type diversity, NOT quality
+2026-01-18 22:32:16,394 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:32:18,135 - INFO - Loaded 238,548 rows
+2026-01-18 22:32:18,137 - INFO - Aggregating to pincode level
+2026-01-18 22:32:18,201 - INFO - Computing service type ratios
+2026-01-18 22:32:18,215 - INFO - Computing demand diversity scores (normalized Shannon entropy)
+2026-01-18 22:32:24,765 - INFO - Demand diversity range: [0.000, 1.000]
+2026-01-18 22:32:24,957 - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\demand_behavior_metrics.csv
+2026-01-18 22:32:24,957 - INFO - Computing district summary
+2026-01-18 22:32:24,995 - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\demand_behavior_summary.csv
+2026-01-18 22:32:24,995 - INFO - Running validation checks
+2026-01-18 22:32:25,001 - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\validation_demand_behavior.csv
+2026-01-18 22:32:25,002 - INFO - Generating visualizations
+2026-01-18 22:32:25,764 - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\demand_behavior
+2026-01-18 22:32:25,764 - INFO - Saved notes: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\demand_behavior_notes.md
+2026-01-18 22:32:25,766 - INFO - 
+============================================================
+2026-01-18 22:32:25,766 - INFO - SUMMARY
+2026-01-18 22:32:25,766 - INFO - ============================================================
+2026-01-18 22:32:25,766 - INFO - Total pincodes analyzed: 19,879
+2026-01-18 22:32:25,766 - INFO - Most common dominant service: bio (17,940 pincodes)
+2026-01-18 22:32:25,766 - INFO - Average demand diversity: 0.794
+2026-01-18 22:32:25,766 - INFO - 
+Demand behavior domain analysis complete
+2026-01-18 22:32:26,134 - INFO - 2026-01-18 22:32:16,392 - INFO - ============================================================
+2026-01-18 22:32:16,392 - INFO - DEMAND BEHAVIOR DOMAIN ANALYSIS
+2026-01-18 22:32:16,392 - INFO - ============================================================
+2026-01-18 22:32:16,392 - INFO - Shannon entropy normalized to [0,1]
+2026-01-18 22:32:16,392 - INFO - Described as service-type diversity, NOT quality
+2026-01-18 22:32:16,394 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:32:18,135 - INFO - Loaded 238,548 rows
+2026-01-18 22:32:18,137 - INFO - Aggregating to pincode level
+2026-01-18 22:32:18,201 - INFO - Computing service type ratios
+2026-01-18 22:32:18,215 - INFO - Computing demand diversity scores (normalized Shannon entropy)
+2026-01-18 22:32:24,765 - INFO - Demand diversity range: [0.000, 1.000]
+2026-01-18 22:32:24,957 - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\demand_behavior_metrics.csv
+2026-01-18 22:32:24,957 - INFO - Computing district summary
+2026-01-18 22:32:24,995 - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\demand_behavior_summary.csv
+2026-01-18 22:32:24,995 - INFO - Running validation checks
+2026-01-18 22:32:25,001 - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\validation_demand_behavior.csv
+2026-01-18 22:32:25,002 - INFO - Generating visualizations
+2026-01-18 22:32:25,764 - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\demand_behavior
+2026-01-18 22:32:25,764 - INFO - Saved notes: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\demand_behavior\demand_behavior_notes.md
+2026-01-18 22:32:25,766 - INFO - 
+============================================================
+2026-01-18 22:32:25,766 - INFO - SUMMARY
+2026-01-18 22:32:25,766 - INFO - ============================================================
+2026-01-18 22:32:25,766 - INFO - Total pincodes analyzed: 19,879
+2026-01-18 22:32:25,766 - INFO - Most common dominant service: bio (17,940 pincodes)
+2026-01-18 22:32:25,766 - INFO - Average demand diversity: 0.794
+2026-01-18 22:32:25,766 - INFO - 
+Demand behavior domain analysis complete
+
+2026-01-18 22:32:26,134 - INFO - ✓ 10_demand_behavior.py completed successfully
+2026-01-18 22:32:26,134 - INFO - 
+Step 3/6: 11_service_quality.py
+2026-01-18 22:32:26,134 - INFO - ================================================================================
+2026-01-18 22:32:26,137 - INFO - RUNNING: 11_service_quality.py
+2026-01-18 22:32:26,137 - INFO - ================================================================================
+2026-01-18 22:32:27,701 - INFO - ============================================================
+2026-01-18 22:32:27,701 - INFO - SERVICE QUALITY DOMAIN ANALYSIS
+2026-01-18 22:32:27,701 - INFO - ============================================================
+2026-01-18 22:32:27,701 - INFO - Using neutral terminology:
+2026-01-18 22:32:27,701 - INFO -   - Activity consistency (not failure)
+2026-01-18 22:32:27,701 - INFO -   - Potential service stress (not poor quality)
+2026-01-18 22:32:27,701 - INFO -   - Signals (not definitive failures)
+2026-01-18 22:32:27,702 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:32:29,507 - INFO - Loaded 238,548 rows
+2026-01-18 22:32:29,507 - INFO - Aggregating to pincode level
+2026-01-18 22:32:29,581 - INFO - Computing activity consistency metrics
+2026-01-18 22:32:29,601 - INFO - Consistency tier distribution:
+consistency_tier
+high_consistency        15599
+moderate_consistency     2435
+inconsistent_pattern      768
+Name: count, dtype: int64
+2026-01-18 22:32:29,739 - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_quality\service_quality_metrics.csv
+2026-01-18 22:32:29,739 - INFO - Computing district summary
+2026-01-18 22:32:29,825 - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_quality\service_quality_summary.csv
+2026-01-18 22:32:29,825 - INFO - Running validation checks
+2026-01-18 22:32:29,829 - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_quality\validation_service_quality.csv
+2026-01-18 22:32:29,829 - INFO - Generating visualizations
+2026-01-18 22:32:30,634 - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\service_quality
+2026-01-18 22:32:30,635 - INFO - Saved notes: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_quality\service_quality_notes.md
+2026-01-18 22:32:30,635 - INFO - 
+============================================================
+2026-01-18 22:32:30,636 - INFO - SUMMARY
+2026-01-18 22:32:30,636 - INFO - ============================================================
+2026-01-18 22:32:30,636 - INFO - Total pincodes analyzed: 19,844
+2026-01-18 22:32:30,637 - INFO - High consistency: 15,599
+2026-01-18 22:32:30,637 - INFO - Potential stress signals: 384
+2026-01-18 22:32:30,637 - INFO - Average consistency score: 0.798
+2026-01-18 22:32:30,637 - INFO - 
+Service quality domain analysis complete
+2026-01-18 22:32:30,876 - INFO - 2026-01-18 22:32:27,701 - INFO - ============================================================
+2026-01-18 22:32:27,701 - INFO - SERVICE QUALITY DOMAIN ANALYSIS
+2026-01-18 22:32:27,701 - INFO - ============================================================
+2026-01-18 22:32:27,701 - INFO - Using neutral terminology:
+2026-01-18 22:32:27,701 - INFO -   - Activity consistency (not failure)
+2026-01-18 22:32:27,701 - INFO -   - Potential service stress (not poor quality)
+2026-01-18 22:32:27,701 - INFO -   - Signals (not definitive failures)
+2026-01-18 22:32:27,702 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:32:29,507 - INFO - Loaded 238,548 rows
+2026-01-18 22:32:29,507 - INFO - Aggregating to pincode level
+2026-01-18 22:32:29,581 - INFO - Computing activity consistency metrics
+2026-01-18 22:32:29,601 - INFO - Consistency tier distribution:
+consistency_tier
+high_consistency        15599
+moderate_consistency     2435
+inconsistent_pattern      768
+Name: count, dtype: int64
+2026-01-18 22:32:29,739 - INFO - Saved metrics: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_quality\service_quality_metrics.csv
+2026-01-18 22:32:29,739 - INFO - Computing district summary
+2026-01-18 22:32:29,825 - INFO - Saved summary: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_quality\service_quality_summary.csv
+2026-01-18 22:32:29,825 - INFO - Running validation checks
+2026-01-18 22:32:29,829 - INFO - Saved validation: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_quality\validation_service_quality.csv
+2026-01-18 22:32:29,829 - INFO - Generating visualizations
+2026-01-18 22:32:30,634 - INFO - Saved 3 visualizations to C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\figures\domains\service_quality
+2026-01-18 22:32:30,635 - INFO - Saved notes: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\service_quality\service_quality_notes.md
+2026-01-18 22:32:30,635 - INFO - 
+============================================================
+2026-01-18 22:32:30,636 - INFO - SUMMARY
+2026-01-18 22:32:30,636 - INFO - ============================================================
+2026-01-18 22:32:30,636 - INFO - Total pincodes analyzed: 19,844
+2026-01-18 22:32:30,637 - INFO - High consistency: 15,599
+2026-01-18 22:32:30,637 - INFO - Potential stress signals: 384
+2026-01-18 22:32:30,637 - INFO - Average consistency score: 0.798
+2026-01-18 22:32:30,637 - INFO - 
+Service quality domain analysis complete
+
+2026-01-18 22:32:30,877 - INFO - ✓ 11_service_quality.py completed successfully
+2026-01-18 22:32:30,878 - INFO - 
+Step 4/6: 12_capacity_mismatch.py
+2026-01-18 22:32:30,878 - INFO - ================================================================================
+2026-01-18 22:32:30,878 - INFO - RUNNING: 12_capacity_mismatch.py
+2026-01-18 22:32:30,878 - INFO - ================================================================================
+2026-01-18 22:32:32,351 - INFO - ============================================================
+2026-01-18 22:32:32,351 - INFO - CAPACITY MISMATCH DOMAIN ANALYSIS
+2026-01-18 22:32:32,351 - INFO - ============================================================
+2026-01-18 22:32:32,352 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:32:34,152 - INFO - Loaded 238,548 rows
+2026-01-18 22:32:34,152 - INFO - Aggregating to pincode level
+2026-01-18 22:32:34,214 - INFO - Computing capacity utilization metrics
+2026-01-18 22:32:34,344 - INFO - Saved metrics
+2026-01-18 22:32:34,499 - INFO - Generating visualizations
+2026-01-18 22:32:35,791 - INFO - 
+Capacity mismatch domain complete. 19,879 pincodes analyzed.
+2026-01-18 22:32:36,046 - INFO - 2026-01-18 22:32:32,351 - INFO - ============================================================
+2026-01-18 22:32:32,351 - INFO - CAPACITY MISMATCH DOMAIN ANALYSIS
+2026-01-18 22:32:32,351 - INFO - ============================================================
+2026-01-18 22:32:32,352 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:32:34,152 - INFO - Loaded 238,548 rows
+2026-01-18 22:32:34,152 - INFO - Aggregating to pincode level
+2026-01-18 22:32:34,214 - INFO - Computing capacity utilization metrics
+2026-01-18 22:32:34,344 - INFO - Saved metrics
+2026-01-18 22:32:34,499 - INFO - Generating visualizations
+2026-01-18 22:32:35,791 - INFO - 
+Capacity mismatch domain complete. 19,879 pincodes analyzed.
+
+2026-01-18 22:32:36,046 - INFO - ✓ 12_capacity_mismatch.py completed successfully
+2026-01-18 22:32:36,046 - INFO - 
+Step 5/6: 13_temporal.py
+2026-01-18 22:32:36,046 - INFO - ================================================================================
+2026-01-18 22:32:36,048 - INFO - RUNNING: 13_temporal.py
+2026-01-18 22:32:36,048 - INFO - ================================================================================
+2026-01-18 22:32:37,438 - INFO - ============================================================
+2026-01-18 22:32:37,438 - INFO - TEMPORAL DOMAIN ANALYSIS
+2026-01-18 22:32:37,438 - INFO - ============================================================
+2026-01-18 22:32:37,438 - INFO - Minimum coverage requirement: 6 active months
+2026-01-18 22:32:37,438 - INFO - Insufficient data flagged explicitly (no forced estimates)
+2026-01-18 22:32:37,439 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:32:39,151 - INFO - Loaded 238,548 rows
+2026-01-18 22:32:39,152 - INFO - Temporal columns found - computing trends
+2026-01-18 22:32:40,401 - INFO - Pincodes with ≥6 months: 0 (0.0%)
+2026-01-18 22:32:40,507 - INFO - Saved metrics
+2026-01-18 22:32:40,664 - INFO - Generating visualizations
+2026-01-18 22:32:41,392 - INFO - 
+Temporal domain complete. 19,879 pincodes flagged as insufficient data.
+2026-01-18 22:32:41,615 - INFO - 2026-01-18 22:32:37,438 - INFO - ============================================================
+2026-01-18 22:32:37,438 - INFO - TEMPORAL DOMAIN ANALYSIS
+2026-01-18 22:32:37,438 - INFO - ============================================================
+2026-01-18 22:32:37,438 - INFO - Minimum coverage requirement: 6 active months
+2026-01-18 22:32:37,438 - INFO - Insufficient data flagged explicitly (no forced estimates)
+2026-01-18 22:32:37,439 - INFO - Loading snapshot: cleaned_uidai_snapshot_20260118_145250.csv
+2026-01-18 22:32:39,151 - INFO - Loaded 238,548 rows
+2026-01-18 22:32:39,152 - INFO - Temporal columns found - computing trends
+2026-01-18 22:32:40,401 - INFO - Pincodes with â‰¥6 months: 0 (0.0%)
+2026-01-18 22:32:40,507 - INFO - Saved metrics
+2026-01-18 22:32:40,664 - INFO - Generating visualizations
+2026-01-18 22:32:41,392 - INFO - 
+Temporal domain complete. 19,879 pincodes flagged as insufficient data.
+
+2026-01-18 22:32:41,616 - INFO - ✓ 13_temporal.py completed successfully
+2026-01-18 22:32:41,616 - INFO - 
+Step 6/6: policy_simulator.py
+2026-01-18 22:32:41,616 - INFO - ================================================================================
+2026-01-18 22:32:41,616 - INFO - RUNNING: policy_simulator.py
+2026-01-18 22:32:41,617 - INFO - ================================================================================
+2026-01-18 22:32:42,517 - INFO - ============================================================
+2026-01-18 22:32:42,517 - INFO - POLICY SIMULATOR (PROTOTYPE)
+2026-01-18 22:32:42,517 - INFO - ============================================================
+2026-01-18 22:32:42,517 - INFO - ILLUSTRATIVE scenarios only - NO guaranteed real-world impact
+2026-01-18 22:32:42,517 - INFO - Simple prioritization logic for demonstration purposes
+2026-01-18 22:32:42,517 - INFO - Loading domain metrics
+2026-01-18 22:32:42,618 - INFO - Loaded 3 domain metric files
+2026-01-18 22:32:42,619 - INFO - Merging domain metrics
+2026-01-18 22:32:42,632 - INFO - Computing composite priority scores (ILLUSTRATIVE)
+2026-01-18 22:32:42,646 - INFO - Generating illustrative resource recommendations (PROTOTYPE)
+2026-01-18 22:32:42,651 - INFO - Saved recommendations: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\policy_recommendations.csv
+2026-01-18 22:32:42,651 - INFO - 
+============================================================
+2026-01-18 22:32:42,651 - INFO - SUMMARY (ILLUSTRATIVE PROTOTYPE)
+2026-01-18 22:32:42,651 - INFO - ============================================================
+2026-01-18 22:32:42,651 - INFO - Top 100 intervention targets identified
+2026-01-18 22:32:42,651 - INFO - Total mobile units (illustrative): 8188
+2026-01-18 22:32:42,651 - INFO - Total field staff (illustrative): 24564
+2026-01-18 22:32:42,651 - INFO - 
+Intervention type distribution:
+2026-01-18 22:32:42,652 - INFO - intervention_type
+capacity_expansion    55
+permanent_center      45
+2026-01-18 22:32:42,652 - INFO - 
+**IMPORTANT: These are ILLUSTRATIVE scenarios for demonstration.**
+2026-01-18 22:32:42,653 - INFO - **NO claims of guaranteed real-world impact or operational feasibility.**
+2026-01-18 22:32:42,653 - INFO - **Actual deployment requires detailed operational planning and validation.**
+2026-01-18 22:32:42,748 - INFO - 2026-01-18 22:32:42,517 - INFO - ============================================================
+2026-01-18 22:32:42,517 - INFO - POLICY SIMULATOR (PROTOTYPE)
+2026-01-18 22:32:42,517 - INFO - ============================================================
+2026-01-18 22:32:42,517 - INFO - ILLUSTRATIVE scenarios only - NO guaranteed real-world impact
+2026-01-18 22:32:42,517 - INFO - Simple prioritization logic for demonstration purposes
+2026-01-18 22:32:42,517 - INFO - Loading domain metrics
+2026-01-18 22:32:42,618 - INFO - Loaded 3 domain metric files
+2026-01-18 22:32:42,619 - INFO - Merging domain metrics
+2026-01-18 22:32:42,632 - INFO - Computing composite priority scores (ILLUSTRATIVE)
+2026-01-18 22:32:42,646 - INFO - Generating illustrative resource recommendations (PROTOTYPE)
+2026-01-18 22:32:42,651 - INFO - Saved recommendations: C:\Users\Lalit Hire\UIDAI Data Hackathon 2026\data\outputs\domains\policy_recommendations.csv
+2026-01-18 22:32:42,651 - INFO - 
+============================================================
+2026-01-18 22:32:42,651 - INFO - SUMMARY (ILLUSTRATIVE PROTOTYPE)
+2026-01-18 22:32:42,651 - INFO - ============================================================
+2026-01-18 22:32:42,651 - INFO - Top 100 intervention targets identified
+2026-01-18 22:32:42,651 - INFO - Total mobile units (illustrative): 8188
+2026-01-18 22:32:42,651 - INFO - Total field staff (illustrative): 24564
+2026-01-18 22:32:42,651 - INFO - 
+Intervention type distribution:
+2026-01-18 22:32:42,652 - INFO - intervention_type
+capacity_expansion    55
+permanent_center      45
+2026-01-18 22:32:42,652 - INFO - 
+**IMPORTANT: These are ILLUSTRATIVE scenarios for demonstration.**
+2026-01-18 22:32:42,653 - INFO - **NO claims of guaranteed real-world impact or operational feasibility.**
+2026-01-18 22:32:42,653 - INFO - **Actual deployment requires detailed operational planning and validation.**
+
+2026-01-18 22:32:42,748 - INFO - ✓ policy_simulator.py completed successfully
+2026-01-18 22:32:42,749 - INFO - 
+================================================================================
+2026-01-18 22:32:42,749 - INFO - AGGREGATING VALIDATION RESULTS
+2026-01-18 22:32:42,749 - INFO - ================================================================================
+2026-01-18 22:32:42,762 - INFO - 
+Validation Summary (5 domains):
+2026-01-18 22:32:42,764 - INFO - result
+FAIL     4
+PASS    16
+2026-01-18 22:32:42,765 - WARNING - 
+4 validation failures detected:
+2026-01-18 22:32:42,765 - WARNING -   [service_deserts] no_infinite_values: Infinite values detected
+2026-01-18 22:32:42,766 - WARNING -   [service_deserts] population_coverage: 4735 pincodes with missing/zero population
+2026-01-18 22:32:42,766 - WARNING -   [service_quality] consistency_score_range: Consistency scores outside [0,1]
+2026-01-18 22:32:42,766 - WARNING -   [service_quality] tier_assignment_complete: 1042 pincodes without tier assignment
+2026-01-18 22:32:42,768 - INFO - 
+================================================================================
+2026-01-18 22:32:42,768 - INFO - DOMAIN ANALYSIS COMPLETION SUMMARY
+2026-01-18 22:32:42,768 - INFO - ================================================================================
+2026-01-18 22:32:42,950 - INFO - 
+           domain  pincodes_analyzed                     key_finding
+capacity_mismatch              19879      4969 low activity pincodes
+  demand_behavior              19879                   Dominant: bio
+  service_deserts              19879 1734 service deserts identified
+  service_quality              19844 15599 high consistency pincodes
+         temporal              19879  0 pincodes with ≥6 months data
+2026-01-18 22:32:42,951 - INFO - 
+================================================================================
+2026-01-18 22:32:42,951 - INFO - POPULATION COVERAGE CHECK
+2026-01-18 22:32:42,951 - INFO - ================================================================================
+2026-01-18 22:32:42,993 - INFO - Pincodes with missing/zero population: 4735
+2026-01-18 22:32:42,994 - WARNING - ⚠ 4735 pincodes with population issues
+2026-01-18 22:32:42,994 - INFO - 
+2026-01-18 22:32:42,994 - INFO - ********************************************************************************
+2026-01-18 22:32:42,994 - INFO - PIPELINE COMPLETED SUCCESSFULLY
+2026-01-18 22:32:42,994 - INFO - ********************************************************************************
+2026-01-18 22:32:42,996 - INFO - End time: 2026-01-18 22:32:42
+2026-01-18 22:32:42,996 - INFO - Total duration: 0:00:34.913816
+2026-01-18 22:32:42,996 - INFO - 
+All domain outputs saved to: outputs/domains/
+2026-01-18 22:32:42,996 - INFO - All figures saved to: outputs/figures/domains/
+2026-01-18 22:32:42,996 - INFO - 
+Review individual domain notes for interpretation guidance.
