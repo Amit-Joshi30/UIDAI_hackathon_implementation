@@ -5,7 +5,8 @@ Pincode-level metrics display only.
 No prescriptive language. No recommendations.
 All values from notebook artifacts.
 """
-# Updated: 2026-01-20 19:29 IST
+# Updated: 2026-01-20 19:34 IST - DEBUG VERSION
+
 import streamlit as st
 from typing import Dict, Optional
 
@@ -15,6 +16,11 @@ def render_case_file(record: Optional[Dict] = None, policy_record: Optional[Dict
     Render metrics for a single pincode.
     Notebook-bound: shows only what exists in artifacts.
     """
+    
+    # DEBUG: Check if function is called
+    st.write("🔍 DEBUG: render_case_file called - version 2026-01-20-19:34")
+    st.write(f"🔍 DEBUG: record exists = {record is not None}")
+    st.write(f"🔍 DEBUG: policy_record exists = {policy_record is not None}")
 
     if not record:
         render_case_file_placeholder()
@@ -29,6 +35,9 @@ def render_case_file(record: Optional[Dict] = None, policy_record: Optional[Dict
     activity_per_100k = record.get("activity_per_100k", 0)
     priority_score = record.get("priority_score", 0)
     is_desert = record.get("is_service_desert", False)
+
+    # DEBUG: Check parsed values
+    st.write(f"🔍 DEBUG: pincode={pincode}, population={population}, urban_flag={urban_flag}")
 
     # Policy details
     composite_priority = None
@@ -100,6 +109,9 @@ def render_case_file(record: Optional[Dict] = None, policy_record: Optional[Dict
             </span>
         </div>
         """
+
+    # DEBUG: About to render HTML
+    st.write("🔍 DEBUG: About to call st.markdown with unsafe_allow_html=True")
 
     # Main render
     st.markdown(
@@ -186,6 +198,9 @@ def render_case_file(record: Optional[Dict] = None, policy_record: Optional[Dict
         """,
         unsafe_allow_html=True,
     )
+    
+    # DEBUG: Finished rendering
+    st.write("🔍 DEBUG: Finished st.markdown call")
 
 
 def render_case_file_placeholder():
