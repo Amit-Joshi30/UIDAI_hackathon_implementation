@@ -45,12 +45,12 @@ from data_handler import (
 )
 
 # ✅ FIXED: all experience imports explicitly included
-from .experiences.framing import render_framing, render_framing_minimal
-from .experiences.proof import render_proof
-from .experiences.case_file import render_case_file, render_case_file_header
-from .experiences.decision import render_decision
-from .experiences.trust import render_trust, render_trust_footer
-from .experiences.insights import render_insights
+from experiences.framing import render_framing, render_framing_minimal
+from experiences.proof import render_proof
+from experiences.case_file import render_case_file, render_case_file_header
+from experiences.decision import render_decision
+from experiences.trust import render_trust, render_trust_footer
+from experiences.insights import render_insights
 
 # =============================================================================
 # LOAD CSS
