@@ -103,26 +103,6 @@ if not st.session_state.data_loaded:
     st.rerun()
 
 # =============================================================================
-# URL PARAMS — RUNS EVERY TIME (like original)
-# =============================================================================
-def handle_url_params():
-    params = st.query_params
-    if "pincode" in params:
-        pincode = params["pincode"]
-        if pincode and pincode != st.session_state.selected_pincode:
-            st.session_state.selected_pincode = pincode
-            st.session_state.search_query = pincode
-            record = lookup_pincode(pincode)
-            if record:
-                st.session_state.selected_record = record
-    if "view" in params:
-        view = params["view"]
-        if view in ["overview", "analysis", "action", "insights"]:
-            st.session_state.current_view = view
-
-handle_url_params()
-
-# =============================================================================
 # SIDEBAR
 # =============================================================================
 def render_sidebar():
@@ -154,39 +134,53 @@ def render_sidebar():
                 type="primary" if st.session_state.current_view == key else "secondary",
             ):
                 st.session_state.current_view = key
-                st.query_params["view"] = key
-                if st.session_state.selected_pincode:
-                    st.query_params["pincode"] = st.session_state.selected_pincode
-                else:
-                    st.query_params.pop("pincode", None)
+                st.rerun()
 
         st.markdown("---")
 
-        # ✅ PINCODE INPUT (EXACT ORIGINAL PATTERN)
-        search = st.text_input(
+        # ✅ DIRECT APPROACH - No query params, just session state
+        pincode_input = st.text_input(
             "Pincode",
-            value=st.session_state.search_query,
+            value="",
             placeholder="Enter 6-digit pincode",
-            key="search_input",
+            key="pincode_search",
             label_visibility="collapsed",
         )
 
-        if search != st.session_state.search_query:
-            st.session_state.search_query = search
-            if search.isdigit() and len(search) == 6:
-                record = lookup_pincode(search)
+        # Process immediately when valid pincode entered
+        if pincode_input and pincode_input.isdigit() and len(pincode_input) == 6:
+            if pincode_input != st.session_state.selected_pincode:
+                record = lookup_pincode(pincode_input)
                 if record:
-                    st.session_state.selected_pincode = search
+                    st.session_state.selected_pincode = pincode_input
                     st.session_state.selected_record = record
-                    st.query_params["pincode"] = search
+                    st.session_state.current_view = "analysis"
+                    st.rerun()
 
+        # Show selected record
         if st.session_state.selected_record:
+            rec = st.session_state.selected_record
+            st.markdown(f"""
+            <div style="background: rgba(26, 115, 232, 0.1); 
+                        border: 1px solid rgba(26, 115, 232, 0.3); 
+                        border-radius: 8px; 
+                        padding: 0.75rem; 
+                        margin-top: 0.5rem;">
+                <div style="color: #1A73E8; font-size: 1.2rem; font-weight: 700;">
+                    {rec.get('pincode', '')}
+                </div>
+                <p style="color: #E6EDF3; font-size: 0.8rem; margin: 0.25rem 0 0 0;">
+                    {str(rec.get('district', '')).replace('_', ' ').title()}
+                </p>
+                <p style="color: #8B949E; font-size: 0.75rem; margin: 0.25rem 0 0 0;">
+                    {str(rec.get('state', '')).replace('_', ' ').title()}
+                </p>
+            </div>
+            """, unsafe_allow_html=True)
+            
             if st.button("Clear", use_container_width=True):
                 st.session_state.selected_pincode = None
                 st.session_state.selected_record = None
-                st.session_state.search_query = ""
-                if "pincode" in st.query_params:
-                    del st.query_params["pincode"]
                 st.rerun()
 
         st.markdown(
