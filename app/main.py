@@ -27,7 +27,7 @@ st.set_page_config(
 )
 
 # =============================================================================
-# HARD LOCK SIDEBAR (DISABLE COLLAPSE)
+# HARD LOCK SIDEBAR (DISABLE COLLAPSE FOREVER)
 # =============================================================================
 st.markdown(
     """
@@ -45,7 +45,7 @@ st.markdown(
 )
 
 with st.sidebar:
-    st.markdown("")  # force sidebar mount every run
+    st.markdown("")  # force sidebar mount
 
 # =============================================================================
 # IMPORTS
@@ -101,10 +101,10 @@ init_session_state()
 if not st.session_state.data_loaded:
     preload_all_data()
     st.session_state.data_loaded = True
-    st.rerun()
+    st.experimental_rerun()
 
 # =============================================================================
-# SAFE QUERY PARAM HANDLER
+# SAFE QUERY PARAM WRITER
 # =============================================================================
 def set_query_params_safe(view, pincode=None):
     if pincode:
@@ -113,23 +113,28 @@ def set_query_params_safe(view, pincode=None):
         st.experimental_set_query_params(view=view)
 
 # =============================================================================
-# URL PARAMS (ONE-TIME HYDRATION)
+# URL PARAMS — READ ONCE, THEN DISABLED FOREVER
 # =============================================================================
 if not st.session_state.url_initialized:
     params = st.query_params
 
-    if "view" in params:
-        st.session_state.current_view = params["view"]
+    view = params.get("view")
+    pincode = params.get("pincode")
 
-    if "pincode" in params and params["pincode"].isdigit():
-        record = lookup_pincode(params["pincode"])
+    if view in {"overview", "analysis", "action", "insights"}:
+        st.session_state.current_view = view
+
+    if pincode and pincode.isdigit() and len(pincode) == 6:
+        record = lookup_pincode(pincode)
         if record:
-            st.session_state.search_query = params["pincode"]
-            st.session_state.selected_pincode = params["pincode"]
+            st.session_state.search_query = pincode
+            st.session_state.selected_pincode = pincode
             st.session_state.selected_record = record
             st.session_state.current_view = "analysis"
 
+    # 🔒 KILL URL OVERRIDES FOREVER
     st.session_state.url_initialized = True
+    st.query_params.clear()
 
 # =============================================================================
 # SIDEBAR
@@ -167,10 +172,11 @@ def render_sidebar():
                     view=key,
                     pincode=st.session_state.selected_pincode,
                 )
+                st.experimental_rerun()
 
         st.markdown("---")
 
-        # 🔥 PINCODE INPUT (FINAL, CORRECT)
+        # 🔥 PINCODE INPUT — FINAL, GUARANTEED
         search = st.text_input(
             "Pincode",
             value=st.session_state.search_query,
@@ -187,10 +193,10 @@ def render_sidebar():
                     st.session_state.selected_record = record
                     st.session_state.current_view = "analysis"
 
-                    set_query_params_safe(
-                        view="analysis",
-                        pincode=search,
-                    )
+                    set_query_params_safe(view="analysis", pincode=search)
+
+                    # 🔥 THIS IS THE KEY LINE
+                    st.experimental_rerun()
 
         if st.session_state.selected_record:
             if st.button("Clear", use_container_width=True):
@@ -198,8 +204,8 @@ def render_sidebar():
                 st.session_state.selected_pincode = None
                 st.session_state.selected_record = None
                 set_query_params_safe(view=st.session_state.current_view)
+                st.experimental_rerun()
 
-        # TEAM ID
         st.markdown(
             """
             <div style="margin-top:1rem;padding-top:0.5rem;
