@@ -88,7 +88,6 @@ def init_session_state():
         "selected_pincode": None,
         "selected_record": None,
         "current_view": "overview",
-        "url_initialized": False,
     }
     for k, v in defaults.items():
         st.session_state.setdefault(k, v)
@@ -104,27 +103,24 @@ if not st.session_state.data_loaded:
     st.rerun()
 
 # =============================================================================
-# URL PARAMS — READ ONCE ONLY
+# URL PARAMS — RUNS EVERY TIME (like original)
 # =============================================================================
-if not st.session_state.url_initialized:
+def handle_url_params():
     params = st.query_params
-
-    view = params.get("view")
-    pincode = params.get("pincode")
-
-    if view in {"overview", "analysis", "action", "insights"}:
-        st.session_state.current_view = view
-
-    if pincode and pincode.isdigit() and len(pincode) == 6:
-        record = lookup_pincode(pincode)
-        if record:
-            st.session_state.search_query = pincode
+    if "pincode" in params:
+        pincode = params["pincode"]
+        if pincode and pincode != st.session_state.selected_pincode:
             st.session_state.selected_pincode = pincode
-            st.session_state.selected_record = record
-            st.session_state.current_view = "analysis"
+            st.session_state.search_query = pincode
+            record = lookup_pincode(pincode)
+            if record:
+                st.session_state.selected_record = record
+    if "view" in params:
+        view = params["view"]
+        if view in ["overview", "analysis", "action", "insights"]:
+            st.session_state.current_view = view
 
-    st.session_state.url_initialized = True
-    st.query_params.clear()
+handle_url_params()
 
 # =============================================================================
 # SIDEBAR
@@ -166,7 +162,7 @@ def render_sidebar():
 
         st.markdown("---")
 
-        # ✅ PINCODE INPUT (EXACT ORIGINAL WORKING PATTERN)
+        # ✅ PINCODE INPUT (EXACT ORIGINAL PATTERN)
         search = st.text_input(
             "Pincode",
             value=st.session_state.search_query,
@@ -175,7 +171,6 @@ def render_sidebar():
             label_visibility="collapsed",
         )
 
-        # EXACT logic from original - NO view change, NO rerun
         if search != st.session_state.search_query:
             st.session_state.search_query = search
             if search.isdigit() and len(search) == 6:
@@ -187,9 +182,9 @@ def render_sidebar():
 
         if st.session_state.selected_record:
             if st.button("Clear", use_container_width=True):
-                st.session_state.search_query = ""
                 st.session_state.selected_pincode = None
                 st.session_state.selected_record = None
+                st.session_state.search_query = ""
                 if "pincode" in st.query_params:
                     del st.query_params["pincode"]
                 st.rerun()
