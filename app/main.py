@@ -207,15 +207,7 @@ def render_sidebar():
         )
 
 render_sidebar()
-# DEBUG: Test if HTML rendering works on Streamlit Cloud
-st.markdown(
-    """
-    <div style="background: red; color: white; padding: 1rem;">
-        ✅ HTML TEST: If you see RED BACKGROUND, HTML works!
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+
 
 # =============================================================================
 # MAIN CONTENT
