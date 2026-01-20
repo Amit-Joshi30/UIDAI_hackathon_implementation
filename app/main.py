@@ -147,26 +147,20 @@ def render_sidebar():
             label_visibility="collapsed",
         )
 
-        # 🔍 DEBUG FILE PATHS
-        if st.checkbox("Debug file paths"):
-            from config import PINCODE_AGGREGATES
+        # 🔍 DEBUG - Show actual pincode values
+        if st.checkbox("Debug pincode values"):
             import pandas as pd
+            from config import PINCODE_AGGREGATES
             
-            st.write(f"**File path:** `{PINCODE_AGGREGATES}`")
-            st.write(f"**File exists?** {PINCODE_AGGREGATES.exists()}")
+            # Load first 20 rows
+            df = pd.read_csv(PINCODE_AGGREGATES, nrows=20)
             
-            if PINCODE_AGGREGATES.exists():
-                file_size = PINCODE_AGGREGATES.stat().st_size / (1024*1024)
-                st.write(f"**File size:** {file_size:.2f} MB")
-                
-                # Load and check
-                raw_df = pd.read_csv(PINCODE_AGGREGATES, nrows=10)
-                st.write(f"**Columns:** {list(raw_df.columns)}")
-                st.write(f"**First 10 pincodes:**")
-                st.dataframe(raw_df[['pincode']] if 'pincode' in raw_df.columns else raw_df)
-            else:
-                st.error("❌ CSV file NOT FOUND!")
-                st.write("Check your artifacts folder structure")
+            st.write("**First 20 pincode values:**")
+            st.dataframe(df[['pincode', 'district', 'state']])
+            
+            st.write("**Pincode data type:**", df['pincode'].dtype)
+            st.write("**Sample pincode values (as strings):**")
+            st.write(df['pincode'].astype(str).tolist())
 
         # Process pincode
         if pincode_input and pincode_input.isdigit() and len(pincode_input) == 6:
