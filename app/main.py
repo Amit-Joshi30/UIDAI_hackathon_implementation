@@ -22,6 +22,12 @@ st.set_page_config(
         "About": "UIDAI Insight Command Center - Hackathon 2026",
     },
 )
+# --- FORCE SIDEBAR TO ALWAYS RENDER (PERMANENT FIX) ---
+if "sidebar_force_render" not in st.session_state:
+    st.session_state.sidebar_force_render = True
+
+with st.sidebar:
+    st.markdown("")
 
 # =============================================================================
 # IMPORTS
