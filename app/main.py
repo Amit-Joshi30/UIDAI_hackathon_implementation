@@ -88,6 +88,7 @@ def init_session_state():
         "selected_pincode": None,
         "selected_record": None,
         "current_view": "overview",
+        "pincode_error": None,
     }
     for k, v in defaults.items():
         st.session_state.setdefault(k, v)
@@ -138,41 +139,31 @@ def render_sidebar():
 
         st.markdown("---")
 
-        # Pincode input
-        pincode_input = st.text_input(
+        # ✅ PINCODE INPUT WITH CALLBACK
+        def handle_pincode_input():
+            """Callback when pincode is entered"""
+            pincode = st.session_state.pincode_search.strip()
+            if pincode and pincode.isdigit() and len(pincode) == 6:
+                record = lookup_pincode(pincode)
+                if record:
+                    st.session_state.selected_pincode = pincode
+                    st.session_state.selected_record = record
+                    st.session_state.current_view = "analysis"
+                    st.session_state.pincode_error = None
+                else:
+                    st.session_state.pincode_error = f"Pincode {pincode} not found in dataset"
+        
+        st.text_input(
             "Pincode",
-            value="",
-            placeholder="Enter 6-digit pincode",
+            placeholder="Enter 6-digit pincode and press Enter",
             key="pincode_search",
             label_visibility="collapsed",
+            on_change=handle_pincode_input,
         )
 
-        # 🔍 DEBUG - Show actual pincode values
-        if st.checkbox("Debug pincode values"):
-            import pandas as pd
-            from config import PINCODE_AGGREGATES
-            
-            # Load first 20 rows
-            df = pd.read_csv(PINCODE_AGGREGATES, nrows=20)
-            
-            st.write("**First 20 pincode values:**")
-            st.dataframe(df[['pincode', 'district', 'state']])
-            
-            st.write("**Pincode data type:**", df['pincode'].dtype)
-            st.write("**Sample pincode values (as strings):**")
-            st.write(df['pincode'].astype(str).tolist())
-
-        # Process pincode
-        if pincode_input and pincode_input.isdigit() and len(pincode_input) == 6:
-            record = lookup_pincode(pincode_input)
-            
-            if record:
-                st.session_state.selected_pincode = pincode_input
-                st.session_state.selected_record = record
-                st.session_state.current_view = "analysis"
-                st.rerun()
-            else:
-                st.error(f"❌ Pincode {pincode_input} not found in dataset")
+        # Show error if any
+        if st.session_state.pincode_error:
+            st.error(f"❌ {st.session_state.pincode_error}")
 
         # Show selected record
         if st.session_state.selected_record:
@@ -198,6 +189,8 @@ def render_sidebar():
             if st.button("Clear", use_container_width=True):
                 st.session_state.selected_pincode = None
                 st.session_state.selected_record = None
+                st.session_state.pincode_search = ""
+                st.session_state.pincode_error = None
                 st.rerun()
 
         st.markdown(
