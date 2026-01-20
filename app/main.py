@@ -166,32 +166,26 @@ def render_sidebar():
 
         st.markdown("---")
 
-        # ✅ PINCODE INPUT (FIXED)
-        # Use key parameter instead of value to bind to session state
-        st.text_input(
+        # ✅ PINCODE INPUT (WORKING PATTERN FROM ORIGINAL)
+        search = st.text_input(
             "Pincode",
-            key="search_query",
+            value=st.session_state.search_query,
             placeholder="Enter 6-digit pincode",
+            key="search_input",
             label_visibility="collapsed",
         )
 
-        # Check if search query has changed and is valid
-        if st.session_state.search_query:
-            search = st.session_state.search_query.strip()
-            
+        # Detect change and process
+        if search != st.session_state.search_query:
+            st.session_state.search_query = search
             if search.isdigit() and len(search) == 6:
-                if search != st.session_state.selected_pincode:
-                    record = lookup_pincode(search)
-                    if record:
-                        st.session_state.selected_pincode = search
-                        st.session_state.selected_record = record
-                        st.session_state.current_view = "analysis"
-
-                        st.query_params.clear()
-                        st.query_params["view"] = "analysis"
-                        st.query_params["pincode"] = search
-
-                        st.rerun()
+                record = lookup_pincode(search)
+                if record:
+                    st.session_state.selected_pincode = search
+                    st.session_state.selected_record = record
+                    st.session_state.current_view = "analysis"
+                    st.query_params["view"] = "analysis"
+                    st.query_params["pincode"] = search
 
         if st.session_state.selected_record:
             if st.button("Clear", use_container_width=True):
