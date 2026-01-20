@@ -10,6 +10,7 @@ __pycache__/
 
 # Data files (CRITICAL)
 *.csv
+!app/data/outputs/**/*.csv
 *.zip
 
 # Data folders (hackathon datasets)
