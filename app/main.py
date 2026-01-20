@@ -27,7 +27,7 @@ st.set_page_config(
 )
 
 # =============================================================================
-# HARD LOCK SIDEBAR (NO COLLAPSE EVER)
+# HARD LOCK SIDEBAR (DISABLE COLLAPSE)
 # =============================================================================
 st.markdown(
     """
@@ -45,7 +45,7 @@ st.markdown(
 )
 
 with st.sidebar:
-    st.markdown("")  # force mount every run
+    st.markdown("")  # force sidebar mount every run
 
 # =============================================================================
 # IMPORTS
@@ -104,18 +104,31 @@ if not st.session_state.data_loaded:
     st.rerun()
 
 # =============================================================================
-# URL PARAMS (ONE-TIME HYDRATION ONLY)
+# SAFE QUERY PARAM HANDLER
+# =============================================================================
+def set_query_params_safe(view, pincode=None):
+    if pincode:
+        st.experimental_set_query_params(view=view, pincode=pincode)
+    else:
+        st.experimental_set_query_params(view=view)
+
+# =============================================================================
+# URL PARAMS (ONE-TIME HYDRATION)
 # =============================================================================
 if not st.session_state.url_initialized:
     params = st.query_params
+
     if "view" in params:
         st.session_state.current_view = params["view"]
+
     if "pincode" in params and params["pincode"].isdigit():
         record = lookup_pincode(params["pincode"])
         if record:
-            st.session_state.selected_pincode = params["pincode"]
             st.session_state.search_query = params["pincode"]
+            st.session_state.selected_pincode = params["pincode"]
             st.session_state.selected_record = record
+            st.session_state.current_view = "analysis"
+
     st.session_state.url_initialized = True
 
 # =============================================================================
@@ -150,14 +163,14 @@ def render_sidebar():
                 type="primary" if st.session_state.current_view == key else "secondary",
             ):
                 st.session_state.current_view = key
-                st.experimental_set_query_params(
+                set_query_params_safe(
                     view=key,
                     pincode=st.session_state.selected_pincode,
                 )
 
         st.markdown("---")
 
-        # ✅ FIXED PINCODE INPUT (STATE-DRIVEN)
+        # 🔥 PINCODE INPUT (FINAL, CORRECT)
         search = st.text_input(
             "Pincode",
             value=st.session_state.search_query,
@@ -172,8 +185,10 @@ def render_sidebar():
                     st.session_state.search_query = search
                     st.session_state.selected_pincode = search
                     st.session_state.selected_record = record
-                    st.experimental_set_query_params(
-                        view=st.session_state.current_view,
+                    st.session_state.current_view = "analysis"
+
+                    set_query_params_safe(
+                        view="analysis",
                         pincode=search,
                     )
 
@@ -182,11 +197,9 @@ def render_sidebar():
                 st.session_state.search_query = ""
                 st.session_state.selected_pincode = None
                 st.session_state.selected_record = None
-                st.experimental_set_query_params(
-                    view=st.session_state.current_view
-                )
+                set_query_params_safe(view=st.session_state.current_view)
 
-        # ✅ TEAM ID
+        # TEAM ID
         st.markdown(
             """
             <div style="margin-top:1rem;padding-top:0.5rem;
