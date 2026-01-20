@@ -21,21 +21,14 @@ ASSETS_DIR = APP_DIR / "assets"
 DATA_DIR = APP_DIR / "data"
 SCENARIO_DIR = DATA_DIR / "scenario_matrices"
 
-# Parent directory artifacts (READ-ONLY)
-PARENT_DIR = APP_DIR.parent
-PARENT_DATA_DIR = PARENT_DIR / "data"
-
-# AG_Analysis artifact paths (READ-ONLY - Single Source of Truth)
-OUTPUTS_DIR = PARENT_DATA_DIR / "outputs"
+# Artifact paths (now inside app/data)
+OUTPUTS_DIR = DATA_DIR / "outputs"
 STREAMLIT_DATA_DIR = OUTPUTS_DIR / "streamlit"
 DOMAINS_DIR = OUTPUTS_DIR / "domains"
 FIGURES_DIR = OUTPUTS_DIR / "figures"
 DECISION_MATRIX_DIR = OUTPUTS_DIR / "final_decision_matrix"
 VALIDATION_DIR = OUTPUTS_DIR / "validation"
 ANTIGRAVITY_DIR = OUTPUTS_DIR / "antigravity"
-
-# Primary dataset
-PRIMARY_DATASET = PARENT_DATA_DIR / "UIDAI_with_population.csv"
 
 # =============================================================================
 # ARTIFACT FILE PATHS (READ-ONLY)
